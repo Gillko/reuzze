@@ -1,0 +1,63 @@
+Reuzze\ReuzzeBundle\Entity\Addresses:
+    type: entity
+    table: addresses
+    indexes:
+        fk_addresses_regions1_idx:
+            columns:
+                - region_id
+    id:
+        addressId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: address_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        addressStreet:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+            column: address_street
+        addressCity:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+            column: address_city
+        addressLat:
+            type: decimal
+            nullable: false
+            precision: 9
+            scale: 6
+            comment: ''
+            column: address_lat
+        addressLon:
+            type: decimal
+            nullable: false
+            precision: 9
+            scale: 6
+            comment: ''
+            column: address_lon
+        addressStreetnr:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            column: address_streetnr
+    manyToOne:
+        region:
+            targetEntity: Regions
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                region_id:
+                    referencedColumnName: region_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

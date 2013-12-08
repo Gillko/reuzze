@@ -1,0 +1,52 @@
+Reuzze\ReuzzeBundle\Entity\Roles:
+    type: entity
+    table: roles
+    id:
+        roleId:
+            type: boolean
+            nullable: false
+            comment: ''
+            id: true
+            column: role_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        roleName:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            comment: ''
+            column: role_name
+        roleDescription:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+            column: role_description
+        roleCreated:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: CURRENT_TIMESTAMP
+            column: role_created
+        roleModified:
+            type: datetime
+            nullable: true
+            comment: ''
+            column: role_modified
+        roleDeleted:
+            type: datetime
+            nullable: true
+            comment: ''
+            column: role_deleted
+    manyToMany:
+        user:
+            targetEntity: Users
+            cascade: {  }
+            mappedBy: role
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

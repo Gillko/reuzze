@@ -1,0 +1,7 @@
+parameters:
+#    reuzze_reuzze.example.class: Reuzze\ReuzzeBundle\Example
+
+services:
+#    reuzze_reuzze.example:
+#        class: %reuzze_reuzze.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

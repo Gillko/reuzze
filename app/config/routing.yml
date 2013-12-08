@@ -1,0 +1,4 @@
+reuzze_reuzze:
+    resource: "@ReuzzeReuzzeBundle/Resources/config/routing.yml"
+    prefix:   /
+

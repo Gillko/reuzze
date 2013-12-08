@@ -1,0 +1,60 @@
+Reuzze\ReuzzeBundle\Entity\Messages:
+    type: entity
+    table: messages
+    indexes:
+        fk_messages_users1_idx:
+            columns:
+                - user_id
+        fk_messages_users2_idx:
+            columns:
+                - friend_id
+    id:
+        messageId:
+            type: string
+            nullable: false
+            length: 36
+            fixed: true
+            comment: ''
+            id: true
+            column: message_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        messageBody:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: message_body
+        messageCreated:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: CURRENT_TIMESTAMP
+            column: message_created
+        messageDeleted:
+            type: datetime
+            nullable: true
+            comment: ''
+            column: message_deleted
+    manyToOne:
+        user:
+            targetEntity: Users
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: user_id
+            orphanRemoval: false
+        friend:
+            targetEntity: Users
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                friend_id:
+                    referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

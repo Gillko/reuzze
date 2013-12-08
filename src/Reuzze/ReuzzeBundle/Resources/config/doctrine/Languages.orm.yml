@@ -1,0 +1,22 @@
+Reuzze\ReuzzeBundle\Entity\Languages:
+    type: entity
+    table: languages
+    id:
+        languageId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: language_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        languageName:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+            column: language_name
+    lifecycleCallbacks: {  }

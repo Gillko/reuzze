@@ -1,0 +1,54 @@
+Reuzze\ReuzzeBundle\Entity\Bids:
+    type: entity
+    table: bids
+    indexes:
+        fk_bids_users1_idx:
+            columns:
+                - user_id
+        fk_bids_entities1_idx:
+            columns:
+                - entity_id
+    id:
+        bidId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: bid_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        bidAmount:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 2
+            comment: ''
+            column: bid_amount
+        bidDate:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: CURRENT_TIMESTAMP
+            column: bid_date
+    manyToOne:
+        user:
+            targetEntity: Users
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: user_id
+            orphanRemoval: false
+        entity:
+            targetEntity: Entities
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                entity_id:
+                    referencedColumnName: entity_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

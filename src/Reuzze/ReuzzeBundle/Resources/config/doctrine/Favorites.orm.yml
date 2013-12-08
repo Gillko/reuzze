@@ -1,0 +1,40 @@
+Reuzze\ReuzzeBundle\Entity\Favorites:
+    type: entity
+    table: favorites
+    indexes:
+        fk_favorites_entities1_idx:
+            columns:
+                - entity_id
+        fk_favorites_users1:
+            columns:
+                - user_id
+    id:
+        favoritesId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: favorites_id
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        user:
+            targetEntity: Users
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: user_id
+            orphanRemoval: false
+        entity:
+            targetEntity: Entities
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                entity_id:
+                    referencedColumnName: entity_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
