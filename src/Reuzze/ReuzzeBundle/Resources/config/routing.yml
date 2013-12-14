@@ -1,3 +1,15 @@
+#reuzze_reuzze_homepage:
+    #pattern:  /hello/{name}
+    #defaults: { _controller: ReuzzeReuzzeBundle:Default:index }
+
 reuzze_reuzze_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: ReuzzeReuzzeBundle:Default:index }
+    pattern:  /
+    defaults: { _controller: ReuzzeReuzzeBundle:Default:home }
+
+reuzze_reuzze_registerpage:
+    pattern:  /register
+    defaults: { _controller: ReuzzeReuzzeBundle:User:register }
+
+reuzze_reuzze_loginpage:
+    pattern:  /login
+    defaults: { _controller: ReuzzeReuzzeBundle:User:login }

@@ -1,0 +1,63 @@
+body, html {
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -300px;
+}
+
+#push,
+footer {
+    height: 300px;
+}
+
+.container {
+    margin: 0 auto;
+    border: none;
+}
+
+.page-header {
+    border: none;
+}
+
+#logo {
+    float: left;
+    width: 185px;
+}
+
+.navbar-default1 {
+    background-color: #EEE;
+    border: none;
+}
+
+.navbar-default {
+    background-color: #FFF;
+    border: none;
+}
+
+a:hover,
+a:focus {
+    color: #eee;
+    text-decoration: underline;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.panel-footer {
+    background-color: #EEE;
+    border: none;
+}
+

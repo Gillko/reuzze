@@ -41,41 +41,41 @@ class LoadUsersData implements FixtureInterface
         $em->flush();*/
 
         $language = new Languages();
-        $language->setlanguageName('test');
+        $language->setlanguageName('nederlands');
 
         $region = new Regions();
         //$region->setregionId('1');
-        $region->setregionName('test');
+        $region->setregionName('East Flanders');
 
-        $adress = new Addresses();
+        $address = new Addresses();
         //$adress->setadressId('1');
-        $adress->setaddressStreet('test');
-        $adress->setaddressCity('test');
-        $adress->setaddressLat('1');
-        $adress->setaddressLon('1');
-        $adress->setaddressStreetNr('1');
-        $adress->setregion($region, 1);
+        $address->setaddressStreet('Patijntjestraat');
+        $address->setaddressCity('Ghent');
+        $address->setaddressLat('51.040009');
+        $address->setaddressLon('3.708362');
+        $address->setaddressStreetNr('33');
+        $address->setregion($region);
 
         $person = new Persons();
         //$person->setperson('1');
-        $person->setpersonFirstname('test');
-        $person->setpersonSurname('test');
-        $person->setpersonProfile('test');
-        $person->setaddress($adress, 1);
+        $person->setpersonFirstname('Gilles');
+        $person->setpersonSurname('Vanpeteghem');
+        $person->setpersonProfile('admin');
+        $person->setaddress($address);
 
 
         $userAdmin = new Users();
         $userAdmin->setuserId('1');
         $userAdmin->setuserUsername('admin');
-        $userAdmin->setuserEmail('admin@gmail.com');
+        $userAdmin->setuserEmail('gilles.vanpeteghem@gmail.com');
         $userAdmin->setuserRating('1');
-        $userAdmin->setperson($person, 1);
-        $userAdmin->setlanguage($language, 1);
+        $userAdmin->setperson($person);
+        $userAdmin->setlanguage($language);
 
         //$manager = $this->getDoctrine()->getManager();
         $manager->persist($language);
         $manager->persist($region);
-        $manager->persist($adress);
+        $manager->persist($address);
         $manager->persist($person);
         $manager->persist($userAdmin);
         $manager->flush();

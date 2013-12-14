@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Reuzze{% endblock %}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('bundles/reuzzereuzze/images/favicon.ico') }}">
+
+    <link rel="stylesheet" href="{{ asset('bundles/reuzzereuzze/css/libraries/bootstrap/bootstrap.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('bundles/reuzzereuzze/css/base.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/reuzzereuzze/js/libraries/jquery-1.10.2.min.js') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/reuzzereuzze/js/libraries/bootstrap/bootstrap.min.js') }}">
+
+</head>
+
+<body>
+
+{% block header %}
+    <header class="page-header">
+        <div class="container">
+            <nav class="navbar navbar-default" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ path('reuzze_reuzze_homepage') }}"><img id="logo" src="bundles/reuzzereuzze/images/ReUzze_Logo.png" alt="logo"></a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ path('reuzze_reuzze_loginpage') }}">Login</a></li>
+                    <li><a href="{{ path('reuzze_reuzze_registerpage') }}">Registreer</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+{% endblock header %}
+
+{% block navigation %}
+    <nav class="navbar navbar-default1">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorie <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                    <li><a href="#">Meer zoekopties</a></li>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Geef een zoekterm in">
+                </div>
+                <button type="submit" class="btn btn-default">Zoeken</button>
+            </form>
+        </div>
+    </nav>
+{% endblock navigation %}
+
+{# hierna komt het block met de naam 'content' #}
+{% block content %}{% endblock %}
+
+{% block footer %}
+    <footer class="panel-footer">
+        <div class="container">
+            <p>Arteveldehogeschool project reuzze Copyright &#169; Niels Vroman & Gilles Vanpeteghem</p>
+        </div>
+    </footer>
+{% endblock footer %}
+</body>
+</html>
