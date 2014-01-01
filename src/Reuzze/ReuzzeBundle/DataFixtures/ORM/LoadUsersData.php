@@ -17,9 +17,14 @@ use Reuzze\ReuzzeBundle\Entity\Persons;
 use Reuzze\ReuzzeBundle\Entity\Addresses;
 use Reuzze\ReuzzeBundle\Entity\Regions;
 use Reuzze\ReuzzeBundle\Entity\Languages;
+use Reuzze\ReuzzeBundle\Entity\Roles;
 
-class LoadUsersData implements FixtureInterface
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
+class LoadUsersData implements FixtureInterface, ContainerAwareInterface
 {
+    private $container;
     /**
      * {@inheritDoc}
      */
@@ -40,8 +45,8 @@ class LoadUsersData implements FixtureInterface
         $em->persist($product);
         $em->flush();*/
 
-        $language = new Languages();
-        $language->setlanguageName('nederlands');
+        //$language = new Languages();
+        //$language->setlanguageName('nederlands');
 
         $region = new Regions();
         //$region->setregionId('1');
@@ -63,21 +68,29 @@ class LoadUsersData implements FixtureInterface
         $person->setpersonProfile('admin');
         $person->setaddress($address);
 
+        $role = new Roles();
+        //$role->setroleId('1');
+        $role->setroleName('Student');
 
-        $userAdmin = new Users();
-        $userAdmin->setuserId('1');
-        $userAdmin->setuserUsername('admin');
-        $userAdmin->setuserEmail('gilles.vanpeteghem@gmail.com');
-        $userAdmin->setuserRating('1');
-        $userAdmin->setperson($person);
-        $userAdmin->setlanguage($language);
+        $user = new Users();
+        $user->setuserId('1');
+        $user->setusername('admin');
+        $user->setpassword($this->encodePassword($user, 'user'));
+        //$user->setsalt('admin');
+        $user->setuserEmail('gilles.vanpeteghem@gmail.com');
+        $user->setuserRating('1');
+        $user->setperson($person);
+        $user->setroles($role);
+        //$userAdmin->setlanguage($language);
 
         //$manager = $this->getDoctrine()->getManager();
-        $manager->persist($language);
+        //$manager->persist($language);
+        $manager->persist($user);
         $manager->persist($region);
         $manager->persist($address);
         $manager->persist($person);
-        $manager->persist($userAdmin);
+        $manager->persist($role);
+
         $manager->flush();
 
 
@@ -99,5 +112,26 @@ class LoadUsersData implements FixtureInterface
 
 
         //$manager->flush();
+    }
+
+    private function encodePassword($user, $plainPassword){
+        $encoder = $this->container->get('security.encoder_factory')
+            ->getEncoder($user);
+
+        return $encoder->encodePassword($plainPassword, $user->getSalt());
+
+    }
+
+    /*
+     * Sets the container
+     *
+     * @param ContainerInterface $container A ContainerInterface instance
+     *
+     * @api
+     */
+    public function setContainer(ContainerInterface $container = null){
+
+        $this->container = $container;
+
     }
 }

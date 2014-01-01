@@ -3,8 +3,79 @@
 {# {% block header_title %}Home{% endblock %} #}
 
 {% block content %}
-    <div class="container">
-        <h1>Registerpage</h1>
-    </div>
+
+    <section id="content">
+        <div class="wrap">
+
+            <!-- REGISTREER FORM -->
+            <div id="registreercontent">
+                <div class="createarticlecontentwrap">
+                    <form novalidate="novalidate" id="form-Register" method="post">
+
+                        <fieldset>
+                            <legend>Registerpage</legend>
+                            <dl>
+                                <dd class="form-group">
+                                    {{ form_row (form.person.personFirstname, { 'attr': {'class': 'form-control'} }) }}
+                                    {{ form_errors (form.person.personFirstname) }}
+                                </dd>
+
+                                <dd class="form-group">
+                                    {{ form_row (form.person.personSurname, { 'attr': {'class': 'form-control'} }) }}
+                                    {{ form_errors (form.person.personSurname) }}
+                                </dd>
+
+                                <dd class="form-group">
+                                    {{ form_row (form.person.address.addressStreet, { 'attr': {'class': 'form-control'} }) }}
+                                    {{ form_errors (form.person.address.addressStreet) }}
+                                </dd>
+
+                                <dd class="form-group">
+                                    {{ form_row (form.person.address.addressCity, { 'attr': {'class': 'form-control'} }) }}
+                                    {{ form_errors (form.person.address.addressCity) }}
+                                </dd>
+
+                                <dd class="form-group">
+                                    {{ form_row (form.person.address.addressStreetnr, { 'attr': {'class': 'form-control'} }) }}
+                                    {{ form_errors (form.person.address.addressStreetnr) }}
+                                </dd>
+
+                                <dd class="form-group">
+                                    {{ form_row (form.person.address.region.regionName, { 'attr': {'class': 'form-control'} }) }}
+                                    {{ form_errors (form.person.address.region.regionName) }}
+                                </dd>
+
+                                {#<dd class="form-group">#}
+                                    {#{{ form_row (form.userId, { 'attr': {'class': 'form-control'} }) }}#}
+
+                                {#</dd>#}
+
+                                <dd class="form-group">
+                                    {{ form_row (form.username, { 'attr': {'class': 'form-control'} }) }}
+
+                                </dd>
+
+                                <dd class="form-group">
+                                    {{ form_row (form.userEmail, { 'attr': {'class': 'form-control'} }) }}
+                                    {# form_errors (form.userEmail) #}
+                                </dd>
+
+                                <dd class="form-group">
+                                    {{ form_row (form.password, { 'attr': {'class': 'form-control'} }) }}
+                                    {# form_errors (form.userSalt) #}
+                                </dd>
+
+                            </dl>
+
+                        </fieldset>
+
+                        {{ form_rest(form)}}
+                        <p><input class="btn btn-primary" name="" type="submit" value="Registreer mij!"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 {% endblock %}

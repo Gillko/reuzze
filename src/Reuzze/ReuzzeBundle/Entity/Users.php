@@ -3,30 +3,45 @@
 namespace Reuzze\ReuzzeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Users
  *
- * @ORM\Table(name="users", uniqueConstraints={@ORM\UniqueConstraint(name="user_username_UNIQUE", columns={"user_username"}), @ORM\UniqueConstraint(name="user_email_UNIQUE", columns={"user_email"})}, indexes={@ORM\Index(name="fk_users_persons1", columns={"person_id"}), @ORM\Index(name="fk_users_languages1_idx", columns={"language_id"})})
+ * @ORM\Table(name="users", uniqueConstraints={@ORM\UniqueConstraint(name="username_UNIQUE", columns={"username"}), @ORM\UniqueConstraint(name="user_email_UNIQUE", columns={"user_email"})}, indexes={@ORM\Index(name="fk_users_persons1", columns={"person_id"}), @ORM\Index(name="fk_users_roles1_idx", columns={"role_id"})})
  * @ORM\Entity
  */
-class Users
+class Users implements UserInterface
 {
     /**
      * @var integer
      *
      * @ORM\Column(name="user_id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $userId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="user_username", type="string", length=45, nullable=false)
+     * @ORM\Column(name="username", type="string", length=45, nullable=false)
      */
-    private $userUsername;
+    private $username;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=60, nullable=false)
+     */
+    private $password;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="salt", type="string", length=30, nullable=false)
+     */
+    private $salt;
 
     /**
      * @var string
@@ -36,9 +51,9 @@ class Users
     private $userEmail;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="user_rating", type="decimal", precision=2, scale=0, nullable=false)
+     * @ORM\Column(name="user_rating", type="integer", nullable=false)
      */
     private $userRating;
 
@@ -88,38 +103,18 @@ class Users
     private $person;
 
     /**
-     * @var \Reuzze\ReuzzeBundle\Entity\Languages
+     * @var \Reuzze\ReuzzeBundle\Entity\Roles
      *
-     * @ORM\OneToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Languages")
+     * @ORM\ManyToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Roles")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="language_id", referencedColumnName="language_id", unique=true)
+     *   @ORM\JoinColumn(name="role_id", referencedColumnName="role_id")
      * })
-     */
-    private $language;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Reuzze\ReuzzeBundle\Entity\Roles", inversedBy="user")
-     * @ORM\JoinTable(name="users_has_roles",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="role_id", referencedColumnName="role_id")
-     *   }
-     * )
      */
     private $role;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->role = new \Doctrine\Common\Collections\ArrayCollection();
+    public function __construct(){
+        $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
     }
-
 
     /**
      * Set userId
@@ -137,7 +132,7 @@ class Users
     /**
      * Get userId
      *
-     * @return integer 
+     * @return integer
      */
     public function getUserId()
     {
@@ -145,26 +140,72 @@ class Users
     }
 
     /**
-     * Set userUsername
+     * Set username
      *
-     * @param string $userUsername
+     * @param string $username
      * @return Users
      */
-    public function setUserUsername($userUsername)
+    public function setUsername($username)
     {
-        $this->userUsername = $userUsername;
+        $this->username = $username;
 
         return $this;
     }
 
     /**
-     * Get userUsername
+     * Get username
      *
-     * @return string 
+     * @return string
      */
-    public function getUserUsername()
+    public function getUsername()
     {
-        return $this->userUsername;
+        return $this->username;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     * @return Users
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     * @return Users
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string
+     */
+    public function getSalt()
+    {
+        return $this->salt;
     }
 
     /**
@@ -183,7 +224,7 @@ class Users
     /**
      * Get userEmail
      *
-     * @return string 
+     * @return string
      */
     public function getUserEmail()
     {
@@ -193,7 +234,7 @@ class Users
     /**
      * Set userRating
      *
-     * @param string $userRating
+     * @param integer $userRating
      * @return Users
      */
     public function setUserRating($userRating)
@@ -206,7 +247,7 @@ class Users
     /**
      * Get userRating
      *
-     * @return string 
+     * @return integer
      */
     public function getUserRating()
     {
@@ -229,7 +270,7 @@ class Users
     /**
      * Get userCreated
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUserCreated()
     {
@@ -252,7 +293,7 @@ class Users
     /**
      * Get userModified
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUserModified()
     {
@@ -275,7 +316,7 @@ class Users
     /**
      * Get userDeleted
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUserDeleted()
     {
@@ -298,7 +339,7 @@ class Users
     /**
      * Get userLastlogin
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUserLastlogin()
     {
@@ -321,7 +362,7 @@ class Users
     /**
      * Get userLocked
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUserLocked()
     {
@@ -344,7 +385,7 @@ class Users
     /**
      * Get person
      *
-     * @return \Reuzze\ReuzzeBundle\Entity\Persons 
+     * @return \Reuzze\ReuzzeBundle\Entity\Persons
      */
     public function getPerson()
     {
@@ -352,58 +393,29 @@ class Users
     }
 
     /**
-     * Set language
-     *
-     * @param \Reuzze\ReuzzeBundle\Entity\Languages $language
-     * @return Users
-     */
-    public function setLanguage(\Reuzze\ReuzzeBundle\Entity\Languages $language = null)
-    {
-        $this->language = $language;
-
-        return $this;
-    }
-
-    /**
-     * Get language
-     *
-     * @return \Reuzze\ReuzzeBundle\Entity\Languages 
-     */
-    public function getLanguage()
-    {
-        return $this->language;
-    }
-
-    /**
-     * Add role
+     * Set role
      *
      * @param \Reuzze\ReuzzeBundle\Entity\Roles $role
      * @return Users
      */
-    public function addRole(\Reuzze\ReuzzeBundle\Entity\Roles $role)
+    public function setRoles(\Reuzze\ReuzzeBundle\Entity\Roles $role = null)
     {
-        $this->role[] = $role;
+        $this->role = $role;
 
         return $this;
-    }
-
-    /**
-     * Remove role
-     *
-     * @param \Reuzze\ReuzzeBundle\Entity\Roles $role
-     */
-    public function removeRole(\Reuzze\ReuzzeBundle\Entity\Roles $role)
-    {
-        $this->role->removeElement($role);
     }
 
     /**
      * Get role
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Reuzze\ReuzzeBundle\Entity\Roles
      */
-    public function getRole()
+    public function getRoles()
     {
-        return $this->role;
+        return array('ROLE_USER');
+        //return $this->role;
+    }
+
+    public function eraseCredentials(){
     }
 }

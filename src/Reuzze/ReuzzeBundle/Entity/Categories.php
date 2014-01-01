@@ -66,20 +66,6 @@ class Categories
      */
     private $categoryParentid;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Reuzze\ReuzzeBundle\Entity\Entities", mappedBy="category")
-     */
-    private $entity;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->entity = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 
     /**
@@ -228,38 +214,5 @@ class Categories
     public function getCategoryParentid()
     {
         return $this->categoryParentid;
-    }
-
-    /**
-     * Add entity
-     *
-     * @param \Reuzze\ReuzzeBundle\Entity\Entities $entity
-     * @return Categories
-     */
-    public function addEntity(\Reuzze\ReuzzeBundle\Entity\Entities $entity)
-    {
-        $this->entity[] = $entity;
-
-        return $this;
-    }
-
-    /**
-     * Remove entity
-     *
-     * @param \Reuzze\ReuzzeBundle\Entity\Entities $entity
-     */
-    public function removeEntity(\Reuzze\ReuzzeBundle\Entity\Entities $entity)
-    {
-        $this->entity->removeElement($entity);
-    }
-
-    /**
-     * Get entity
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getEntity()
-    {
-        return $this->entity;
     }
 }

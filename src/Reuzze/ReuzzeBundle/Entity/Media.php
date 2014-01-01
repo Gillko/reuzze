@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Media
  *
- * @ORM\Table(name="media")
+ * @ORM\Table(name="media", indexes={@ORM\Index(name="fk_media_entities1", columns={"entity_id"})})
  * @ORM\Entity
  */
 class Media
@@ -52,17 +52,19 @@ class Media
     /**
      * @var \Reuzze\ReuzzeBundle\Entity\Entities
      *
-     * @ORM\OneToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Entities")
+     * @ORM\ManyToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Entities")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="medium_id", referencedColumnName="entity_id", unique=true)
+     *   @ORM\JoinColumn(name="entity_id", referencedColumnName="entity_id")
      * })
      */
-    private $medium;
+    private $entity;
+
+
 
     /**
      * Get mediumId
      *
-     * @return integer
+     * @return integer 
      */
     public function getMediumId()
     {
@@ -162,25 +164,25 @@ class Media
     }
 
     /**
-     * Set medium
+     * Set entity
      *
-     * @param \Reuzze\ReuzzeBundle\Entity\Entities $medium
+     * @param \Reuzze\ReuzzeBundle\Entity\Entities $entity
      * @return Media
      */
-    public function setMedium(\Reuzze\ReuzzeBundle\Entity\Entities $medium = null)
+    public function setEntity(\Reuzze\ReuzzeBundle\Entity\Entities $entity = null)
     {
-        $this->medium = $medium;
+        $this->entity = $entity;
 
         return $this;
     }
 
     /**
-     * Get medium
+     * Get entity
      *
      * @return \Reuzze\ReuzzeBundle\Entity\Entities 
      */
-    public function getMedium()
+    public function getEntity()
     {
-        return $this->medium;
+        return $this->entity;
     }
 }

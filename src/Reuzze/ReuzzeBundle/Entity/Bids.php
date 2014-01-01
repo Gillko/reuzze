@@ -129,7 +129,7 @@ class Bids
     /**
      * Get user
      *
-     * @return \Reuzze\ReuzzeBundle\Entity\Users
+     * @return \Reuzze\ReuzzeBundle\Entity\Users 
      */
     public function getUser()
     {

@@ -13,3 +13,11 @@ reuzze_reuzze_registerpage:
 reuzze_reuzze_loginpage:
     pattern:  /login
     defaults: { _controller: ReuzzeReuzzeBundle:User:login }
+
+reuzze_reuzze_login_checkpage:
+    pattern:  /login_check
+    defaults: { _controller: ReuzzeReuzzeBundle:User:loginCheck }
+
+reuzze_reuzze_logoutpage:
+    pattern:  /logout
+    defaults: { _controller: ReuzzeReuzzeBundle:User:logout }

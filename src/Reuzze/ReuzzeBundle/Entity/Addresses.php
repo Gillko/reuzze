@@ -38,14 +38,14 @@ class Addresses
     /**
      * @var string
      *
-     * @ORM\Column(name="address_lat", type="decimal", precision=9, scale=6, nullable=false)
+     * @ORM\Column(name="address_lat", type="decimal", precision=18, scale=12, nullable=true)
      */
     private $addressLat;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="address_lon", type="decimal", precision=9, scale=6, nullable=false)
+     * @ORM\Column(name="address_lon", type="decimal", precision=18, scale=12, nullable=true)
      */
     private $addressLon;
 

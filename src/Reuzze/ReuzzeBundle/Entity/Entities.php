@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Entities
  *
- * @ORM\Table(name="entities", indexes={@ORM\Index(name="fk_entities_users1", columns={"user_id"}), @ORM\Index(name="fk_entities_countries1_idx", columns={"region_id"})})
+ * @ORM\Table(name="entities", indexes={@ORM\Index(name="fk_entities_users1", columns={"user_id"}), @ORM\Index(name="fk_entities_countries1_idx", columns={"region_id"}), @ORM\Index(name="fk_entities_categories1_idx", columns={"category_id"})})
  * @ORM\Entity
  */
 class Entities
@@ -52,13 +52,6 @@ class Entities
     /**
      * @var string
      *
-     * @ORM\Column(name="entity_type", type="string", length=16, nullable=false)
-     */
-    private $entityType;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="entity_instantsellingprice", type="decimal", precision=12, scale=2, nullable=false)
      */
     private $entityInstantsellingprice;
@@ -73,7 +66,7 @@ class Entities
     /**
      * @var string
      *
-     * @ORM\Column(name="entity_condition", type="string", length=16, nullable=false)
+     * @ORM\Column(name="entity_condition", type="string", nullable=false)
      */
     private $entityCondition;
 
@@ -126,27 +119,15 @@ class Entities
     private $region;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \Reuzze\ReuzzeBundle\Entity\Categories
      *
-     * @ORM\ManyToMany(targetEntity="Reuzze\ReuzzeBundle\Entity\Categories", inversedBy="entity")
-     * @ORM\JoinTable(name="entities_has_categories",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="entity_id", referencedColumnName="entity_id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="category_id", referencedColumnName="category_id")
-     *   }
-     * )
+     * @ORM\ManyToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Categories")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="category_id", referencedColumnName="category_id")
+     * })
      */
     private $category;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 
     /**
@@ -249,29 +230,6 @@ class Entities
     public function getEntityEndtime()
     {
         return $this->entityEndtime;
-    }
-
-    /**
-     * Set entityType
-     *
-     * @param string $entityType
-     * @return Entities
-     */
-    public function setEntityType($entityType)
-    {
-        $this->entityType = $entityType;
-
-        return $this;
-    }
-
-    /**
-     * Get entityType
-     *
-     * @return string 
-     */
-    public function getEntityType()
-    {
-        return $this->entityType;
     }
 
     /**
@@ -482,32 +440,22 @@ class Entities
     }
 
     /**
-     * Add category
+     * Set category
      *
      * @param \Reuzze\ReuzzeBundle\Entity\Categories $category
      * @return Entities
      */
-    public function addCategory(\Reuzze\ReuzzeBundle\Entity\Categories $category)
+    public function setCategory(\Reuzze\ReuzzeBundle\Entity\Categories $category = null)
     {
-        $this->category[] = $category;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Remove category
-     *
-     * @param \Reuzze\ReuzzeBundle\Entity\Categories $category
-     */
-    public function removeCategory(\Reuzze\ReuzzeBundle\Entity\Categories $category)
-    {
-        $this->category->removeElement($category);
-    }
-
-    /**
      * Get category
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Reuzze\ReuzzeBundle\Entity\Categories 
      */
     public function getCategory()
     {

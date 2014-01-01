@@ -15,11 +15,21 @@ class Favorites
     /**
      * @var integer
      *
-     * @ORM\Column(name="favorites_id", type="integer")
+     * @ORM\Column(name="favorite_id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $favoritesId;
+    private $favoriteId;
+
+    /**
+     * @var \Reuzze\ReuzzeBundle\Entity\Entities
+     *
+     * @ORM\OneToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Entities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="entity_id", referencedColumnName="entity_id", unique=true)
+     * })
+     */
+    private $entity;
 
     /**
      * @var \Reuzze\ReuzzeBundle\Entity\Users
@@ -31,49 +41,29 @@ class Favorites
      */
     private $user;
 
-    /**
-     * @var \Reuzze\ReuzzeBundle\Entity\Entities
-     *
-     * @ORM\ManyToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Entities")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="entity_id", referencedColumnName="entity_id")
-     * })
-     */
-    private $entity;
-
 
 
     /**
-     * Get favoritesId
+     * Set favoriteId
      *
-     * @return integer 
-     */
-    public function getFavoritesId()
-    {
-        return $this->favoritesId;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \Reuzze\ReuzzeBundle\Entity\Users $user
+     * @param integer $favoriteId
      * @return Favorites
      */
-    public function setUser(\Reuzze\ReuzzeBundle\Entity\Users $user = null)
+    public function setFavoriteId($favoriteId)
     {
-        $this->user = $user;
+        $this->favoriteId = $favoriteId;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Get favoriteId
      *
-     * @return \Reuzze\ReuzzeBundle\Entity\Users 
+     * @return integer 
      */
-    public function getUser()
+    public function getFavoriteId()
     {
-        return $this->user;
+        return $this->favoriteId;
     }
 
     /**
@@ -97,5 +87,28 @@ class Favorites
     public function getEntity()
     {
         return $this->entity;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Reuzze\ReuzzeBundle\Entity\Users $user
+     * @return Favorites
+     */
+    public function setUser(\Reuzze\ReuzzeBundle\Entity\Users $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Reuzze\ReuzzeBundle\Entity\Users 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

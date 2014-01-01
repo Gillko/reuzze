@@ -56,20 +56,6 @@ class Roles
      */
     private $roleDeleted;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Reuzze\ReuzzeBundle\Entity\Users", mappedBy="role")
-     */
-    private $user;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 
     /**
@@ -195,38 +181,5 @@ class Roles
     public function getRoleDeleted()
     {
         return $this->roleDeleted;
-    }
-
-    /**
-     * Add user
-     *
-     * @param \Reuzze\ReuzzeBundle\Entity\Users $user
-     * @return Roles
-     */
-    public function addUser(\Reuzze\ReuzzeBundle\Entity\Users $user)
-    {
-        $this->user[] = $user;
-
-        return $this;
-    }
-
-    /**
-     * Remove user
-     *
-     * @param \Reuzze\ReuzzeBundle\Entity\Users $user
-     */
-    public function removeUser(\Reuzze\ReuzzeBundle\Entity\Users $user)
-    {
-        $this->user->removeElement($user);
-    }
-
-    /**
-     * Get user
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 }
