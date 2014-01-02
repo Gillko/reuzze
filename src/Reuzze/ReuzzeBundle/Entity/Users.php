@@ -18,11 +18,11 @@ class Users implements UserInterface
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="user_id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    private $user_id;
 
     /**
      * @var string
@@ -122,26 +122,26 @@ class Users implements UserInterface
     }
 
     /**
-     * Set userId
+     * Set user_id
      *
-     * @param integer $id
+     * @param integer $user_id
      * @return Users
      */
-    public function setId($id)
+    public function setUserId($user_id)
     {
-        $this->id = $id;
+        $this->user_id = $user_id;
 
         return $this;
     }
 
     /**
-     * Get userId
+     * Get user_id
      *
      * @return integer
      */
-    public function getId()
+    public function getUserId()
     {
-        return $this->id;
+        return $this->user_id;
     }
 
     /**
@@ -417,7 +417,7 @@ class Users implements UserInterface
      */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return ['ROLE_USER'];
         //return $this->role;
     }
 

@@ -63,7 +63,7 @@ class UserController extends Controller
         {
             $form->bind($request);
 
-            if ($form->isValid()) {
+            /*if ($form->isValid()) {
                 $user = $form->getData();
 
                 $user->setPassword($this->encodePassword($user, $user->getPlainPassword()));
@@ -100,21 +100,21 @@ class UserController extends Controller
                 //$url = $this->generateUrl('event');
 
                 //return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
-            }
+            }*/
 
-            /*if($form->isValid())
+            if($form->isValid())
             {
                 $factory = $this->get('security.encoder_factory');
                 $encoder = $factory->getEncoder($user);
                 $password = $encoder->encodePassword($user->getpassword(), $user->getsalt());
-                $user->setpassword($password);*/
+                $user->setpassword($password);
 
                 /*$role = $this->getDoctrine()
                     ->getRepository('ReuzzeReuzzeBundle:Roles')
                     ->findOneBy(array ('roleId' => 1))
                 ;*/
 
-                /*$user->setRoles($role);
+                $user->setRoles($role);
 
                 $date = new \DateTime('NOW');
                 //$user->setuserId('');
@@ -133,7 +133,7 @@ class UserController extends Controller
                 $entityManager->flush();
 
                 return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
-            }*/
+            }
         }
 
             return $this->render('ReuzzeReuzzeBundle:User:register.html.twig', array(
@@ -141,9 +141,9 @@ class UserController extends Controller
             ));
     }
 
-    public function loginAction()
+    public function loginAction(Request $request)
     {
-        $request = $this->getRequest();
+        /*$request = $this->getRequest();
         $session = $request->getSession();
 
         // get the login error if there is one
@@ -154,30 +154,44 @@ class UserController extends Controller
             // last username entered by the user
             'last_username' => $session->get(SecurityContext::LAST_USERNAME),
             'error'         => $error,
-        ));
+        ));*/
 
-        /*$user = new Users();
+        $user = new Users();
 
         $form = $this->createForm(new LoginType(), $user);
 
-        if($request->getMethod() == 'POST'){
+        /*if($request->getMethod()=='POST'){
             $username=$request->get('username');
             $password=$request->get('password');
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $repository = $entityManager->getRepository('ReuzzeReuzzeBundle:Users');
+
+            $user = $repository->findOneBy(array('username'=>$username,'password'=>$password));
+            if($user)
+            {
+                return $this->render('ReuzzeReuzzeBundle:Default:home.html.twig');
+                //return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
+            }
+        }*/
+
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+        } else {
+            $session = $request->getSession();
+            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
         }
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $repository = $entityManager->getRepository('ReuzzeReuzzeBundle:Users');
 
-        $user = $repository->findOneBy(array('userName'=>$username,'password'=>$password));
 
-        if($user)
-        {
-            return $this->render('ReuzzeReuzzeBundle:Default:home.html.twig');
-            //return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
-        } else {
-            return $this->render('ReuzzeReuzzeBundle:User:login_check.html.twig');
-        }*/
-    }
+         /*else {*/
+             return $this->render('ReuzzeReuzzeBundle:User:login.html.twig', array(
+                 'form' => $form->createView(),
+                 'error' => $error,
+             ));
+        }
+    //}
 
     public function loginCheckAction(){
         //return $this->render('ReuzzeReuzzeBundle:User:login_check.html.twig');

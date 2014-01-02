@@ -19,8 +19,7 @@
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "doctrine/orm": "*",
-        "jms/security-extra-bundle": "dev-master"
+        "doctrine/orm": "*"
     },
     "scripts": {
         "post-install-cmd": [

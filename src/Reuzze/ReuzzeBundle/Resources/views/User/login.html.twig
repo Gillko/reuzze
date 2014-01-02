@@ -3,24 +3,34 @@
 {# {% block header_title %}Home{% endblock %} #}
 
 {% block content %}
+
     {% if error %}
         <div class="form-error">{{ error.message|trans }}</div>
     {% endif %}
 
-    <form id="form-login" action="{{ path('reuzze_reuzze_login_checkpage') }}" method="post">
-        <label for="username">Username</label>
-        <input class="form-control" type="text" id="username" name="username" value="{{ last_username }}" />
+    <form novalidate="novalidate" action="{{ path('reuzze_reuzze_login_checkpage') }}" id="form-login" method="post">
 
-        <label for="password">Password</label>
-        <input class="form-control" type="password" id="password" name="password" />
+        <fieldset>
+            <legend>Loginpage</legend>
+            <dl>
 
-        {#
-            If you want to control the URL the user
-            is redirected to on success (more details below)
-            <input type="hidden" name="_target_path" value="/account" />
-        #}
+                <dd class="form-group">
+                    {{ form_row (form.username, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.username) }}
+                </dd>
 
-        <button class="btn btn-primary" type="submit">Login</button>
+                <dd class="form-group">
+                    {{ form_row (form.password, { 'attr': {'class': 'form-control'} }) }}
+                    {# form_errors (form.userSalt) #}
+                </dd>
+
+            </dl>
+
+        </fieldset>
+
+        {{ form_rest(form)}}
+        <p><input class="btn btn-primary" name="" type="submit" value="Login!"></p>
     </form>
+
 
 {% endblock %}
