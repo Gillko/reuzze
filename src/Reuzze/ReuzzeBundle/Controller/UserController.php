@@ -7,6 +7,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\Security\Core\SecurityContext;
 
+use Symfony\Component\Security\Core\User\UserInterface;
+
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+
 use Reuzze\ReuzzeBundle\Form\Type\LoginType;
 use Reuzze\ReuzzeBundle\Form\Type\RegisterType;
 
@@ -51,7 +55,7 @@ class UserController extends Controller
 
         $address->setRegion($region);
 
-        $role->setRoleName('Student');
+        $role->setRoleName('ROLE_USER');
 
         $form = $this->createForm(new RegisterType(), $user);
 
@@ -59,17 +63,10 @@ class UserController extends Controller
         {
             $form->bind($request);
 
-            if($form->isValid())
-            {
-                $factory = $this->get('security.encoder_factory');
-                $encoder = $factory->getEncoder($user);
-                $password = $encoder->encodePassword($user->getpassword(), $user->getsalt());
-                $user->setpassword($password);
+            if ($form->isValid()) {
+                $user = $form->getData();
 
-                /*$role = $this->getDoctrine()
-                    ->getRepository('ReuzzeReuzzeBundle:Roles')
-                    ->findOneBy(array ('roleId' => 1))
-                ;*/
+                $user->setPassword($this->encodePassword($user, $user->getPlainPassword()));
 
                 $user->setRoles($role);
 
@@ -89,8 +86,54 @@ class UserController extends Controller
 
                 $entityManager->flush();
 
-                return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
+                $request->getSession()
+                    ->getFlashBag()
+                    ->add('success', 'Registration went super smooth!')
+                ;
+
+                $this->authenticateUser($user);
+
+                $url = $this->generateUrl('reuzze_reuzze_loginpage');
+
+                return $this->redirect($url);
+
+                //$url = $this->generateUrl('event');
+
+                //return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
             }
+
+            /*if($form->isValid())
+            {
+                $factory = $this->get('security.encoder_factory');
+                $encoder = $factory->getEncoder($user);
+                $password = $encoder->encodePassword($user->getpassword(), $user->getsalt());
+                $user->setpassword($password);*/
+
+                /*$role = $this->getDoctrine()
+                    ->getRepository('ReuzzeReuzzeBundle:Roles')
+                    ->findOneBy(array ('roleId' => 1))
+                ;*/
+
+                /*$user->setRoles($role);
+
+                $date = new \DateTime('NOW');
+                //$user->setuserId('');
+                $user->setuserCreated($date);
+
+                $entityManager = $this->getDoctrine()->getManager();
+
+                $entityManager->persist($person);
+
+                $entityManager->persist($user);
+                $entityManager->persist($address);
+                $entityManager->persist($region);
+
+                $entityManager->persist($role);
+
+                $entityManager->flush();
+
+                return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
+            }*/
         }
 
             return $this->render('ReuzzeReuzzeBundle:User:register.html.twig', array(
@@ -98,34 +141,42 @@ class UserController extends Controller
             ));
     }
 
-    public function loginAction(Request $request)
+    public function loginAction()
     {
+        $request = $this->getRequest();
         $session = $request->getSession();
 
         // get the login error if there is one
-        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
-            $error = $request->attributes->get(
-                SecurityContext::AUTHENTICATION_ERROR
-            );
-        } else {
-            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
-            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
-        }
+        $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+        $session->remove(SecurityContext::AUTHENTICATION_ERROR);
 
-        //$user = new Users();
-
-        //$form = $this->createForm(new LoginType(), $user);
-
-        //if($form->isValid())
-        //{
-          //  return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
-        //}
-
-        return $this->render('ReuzzeReuzzeBundle:User:login.html.twig', array(
+        return array(
             // last username entered by the user
             'last_username' => $session->get(SecurityContext::LAST_USERNAME),
             'error'         => $error,
         ));
+
+        /*$user = new Users();
+
+        $form = $this->createForm(new LoginType(), $user);
+
+        if($request->getMethod() == 'POST'){
+            $username=$request->get('username');
+            $password=$request->get('password');
+        }
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $repository = $entityManager->getRepository('ReuzzeReuzzeBundle:Users');
+
+        $user = $repository->findOneBy(array('userName'=>$username,'password'=>$password));
+
+        if($user)
+        {
+            return $this->render('ReuzzeReuzzeBundle:Default:home.html.twig');
+            //return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
+        } else {
+            return $this->render('ReuzzeReuzzeBundle:User:login_check.html.twig');
+        }*/
     }
 
     public function loginCheckAction(){
@@ -134,5 +185,22 @@ class UserController extends Controller
 
     public function logoutAction(){
 
+    }
+
+    private function encodePassword($user, $plainPassword)
+    {
+        $encoder = $this->container->get('security.encoder_factory')
+            ->getEncoder($user)
+        ;
+
+        return $encoder->encodePassword($plainPassword, $user->getSalt());
+    }
+
+    private function authenticateUser(UserInterface $user)
+    {
+        $providerKey = 'secured_area'; // your firewall name
+        $token = new UsernamePasswordToken($user, null, $providerKey, $user->getRoles());
+
+        $this->container->get('security.context')->setToken($token);
     }
 }

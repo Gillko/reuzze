@@ -19,42 +19,42 @@ class Roles
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $roleId;
+    protected $roleId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="role_name", type="string", length=45, nullable=false)
      */
-    private $roleName;
+    protected $roleName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="role_description", type="string", length=255, nullable=true)
      */
-    private $roleDescription;
+    protected $roleDescription;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="role_created", type="datetime", nullable=false)
      */
-    private $roleCreated;
+    protected $roleCreated;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="role_modified", type="datetime", nullable=true)
      */
-    private $roleModified;
+    protected $roleModified;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="role_deleted", type="datetime", nullable=true)
      */
-    private $roleDeleted;
+    protected $roleDeleted;
 
 
 

@@ -19,49 +19,49 @@ class Persons
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $personId;
+    protected $personId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="person_firstname", type="string", length=45, nullable=false)
      */
-    private $personFirstname;
+    protected $personFirstname;
 
     /**
      * @var string
      *
      * @ORM\Column(name="person_surname", type="string", length=255, nullable=false)
      */
-    private $personSurname;
+    protected $personSurname;
 
     /**
      * @var string
      *
      * @ORM\Column(name="person_profile", type="text", nullable=true)
      */
-    private $personProfile;
+    protected $personProfile;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="person_created", type="datetime", nullable=false)
      */
-    private $personCreated;
+    protected $personCreated;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="person_modified", type="datetime", nullable=true)
      */
-    private $personModified;
+    protected $personModified;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="person_deleted", type="datetime", nullable=true)
      */
-    private $personDeleted;
+    protected $personDeleted;
 
     /**
      * @var \Reuzze\ReuzzeBundle\Entity\Addresses
@@ -71,7 +71,7 @@ class Persons
      *   @ORM\JoinColumn(name="address_id", referencedColumnName="address_id")
      * })
      */
-    private $address;
+    protected $address;
 
 
 

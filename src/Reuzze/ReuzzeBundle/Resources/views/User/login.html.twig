@@ -7,12 +7,12 @@
         <div class="form-error">{{ error.message|trans }}</div>
     {% endif %}
 
-    <form action="{{ path('reuzze_reuzze_login_checkpage') }}" method="post">
+    <form id="form-login" action="{{ path('reuzze_reuzze_login_checkpage') }}" method="post">
         <label for="username">Username</label>
-        <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" />
+        <input class="form-control" type="text" id="username" name="username" value="{{ last_username }}" />
 
         <label for="password">Password</label>
-        <input class="form-control" type="password" id="password" name="_password" />
+        <input class="form-control" type="password" id="password" name="password" />
 
         {#
             If you want to control the URL the user

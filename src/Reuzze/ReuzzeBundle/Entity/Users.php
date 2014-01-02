@@ -2,6 +2,8 @@
 
 namespace Reuzze\ReuzzeBundle\Entity;
 
+//use Reuzze\ReuzzeBundle\Reuzze\Utility;
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -16,11 +18,11 @@ class Users implements UserInterface
     /**
      * @var integer
      *
-     * @ORM\Column(name="user_id", type="integer")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $userId;
+    private $id;
 
     /**
      * @var string
@@ -100,7 +102,7 @@ class Users implements UserInterface
      *   @ORM\JoinColumn(name="person_id", referencedColumnName="person_id", unique=true)
      * })
      */
-    private $person;
+    protected $person;
 
     /**
      * @var \Reuzze\ReuzzeBundle\Entity\Roles
@@ -110,21 +112,24 @@ class Users implements UserInterface
      *   @ORM\JoinColumn(name="role_id", referencedColumnName="role_id")
      * })
      */
-    private $role;
+    protected $role;
+
+    private $plainPassword;
 
     public function __construct(){
+        //$this->salt = hash_hmac('sha512', 'sleutelke', 'sleutelke');
         $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
     }
 
     /**
      * Set userId
      *
-     * @param integer $userId
+     * @param integer $id
      * @return Users
      */
-    public function setUserId($userId)
+    public function setId($id)
     {
-        $this->userId = $userId;
+        $this->id = $id;
 
         return $this;
     }
@@ -134,9 +139,9 @@ class Users implements UserInterface
      *
      * @return integer
      */
-    public function getUserId()
+    public function getId()
     {
-        return $this->userId;
+        return $this->id;
     }
 
     /**
@@ -417,5 +422,16 @@ class Users implements UserInterface
     }
 
     public function eraseCredentials(){
+        $this->setPlainPassword(null);
+    }
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
     }
 }

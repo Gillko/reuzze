@@ -19,42 +19,42 @@ class Addresses
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $addressId;
+    protected $addressId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="address_street", type="string", length=45, nullable=false)
      */
-    private $addressStreet;
+    protected $addressStreet;
 
     /**
      * @var string
      *
      * @ORM\Column(name="address_city", type="string", length=45, nullable=false)
      */
-    private $addressCity;
+    protected $addressCity;
 
     /**
      * @var string
      *
      * @ORM\Column(name="address_lat", type="decimal", precision=18, scale=12, nullable=true)
      */
-    private $addressLat;
+    protected $addressLat;
 
     /**
      * @var string
      *
      * @ORM\Column(name="address_lon", type="decimal", precision=18, scale=12, nullable=true)
      */
-    private $addressLon;
+    protected $addressLon;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="address_streetnr", type="integer", nullable=false)
      */
-    private $addressStreetnr;
+    protected $addressStreetnr;
 
     /**
      * @var \Reuzze\ReuzzeBundle\Entity\Regions
@@ -64,7 +64,7 @@ class Addresses
      *   @ORM\JoinColumn(name="region_id", referencedColumnName="region_id")
      * })
      */
-    private $region;
+    protected $region;
 
 
 

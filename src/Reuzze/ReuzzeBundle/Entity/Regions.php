@@ -19,14 +19,14 @@ class Regions
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $regionId;
+    protected $regionId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="region_name", type="string", length=45, nullable=false)
      */
-    private $regionName;
+    protected $regionName;
 
 
 
