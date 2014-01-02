@@ -2,8 +2,6 @@
 
 namespace Reuzze\ReuzzeBundle\Entity;
 
-//use Reuzze\ReuzzeBundle\Reuzze\Utility;
-
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -117,7 +115,6 @@ class Users implements UserInterface
     private $plainPassword;
 
     public function __construct(){
-        //$this->salt = hash_hmac('sha512', 'sleutelke', 'sleutelke');
         $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
     }
 
@@ -418,7 +415,6 @@ class Users implements UserInterface
     public function getRoles()
     {
         return ['ROLE_USER'];
-        //return $this->role;
     }
 
     public function eraseCredentials(){

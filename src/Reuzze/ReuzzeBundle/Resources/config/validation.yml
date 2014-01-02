@@ -3,9 +3,6 @@
 Reuzze\ReuzzeBundle\Entity\Users:
   properties:
     username:
-      ## mag niet leeg zijn
-      ## - NotBlank: ~
-      ##- NotBlank: { message: "mag niet leeg zijn." }
       - NotBlank: { message: "mag niet leeg zijn.", groups: [login, registration] }
     userEmail:
       - NotBlank: { message: "mag niet leeg zijn.", groups: [login, registration] }

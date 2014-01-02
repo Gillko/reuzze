@@ -28,37 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="login.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/login.html.twig">
+      <file leaf-file-name="RegisterType.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/RegisterType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="80" selection-start="276" selection-end="305" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="615">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Users.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Users.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="16" selection-start="2993" selection-end="2993" vertical-scroll-proportion="-0.5246423" vertical-offset="2175" max-vertical-offset="6630">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/UserController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="32" selection-start="1041" selection-end="1041" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="3150">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/DefaultController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="315">
+            <state line="19" column="54" selection-start="476" selection-end="476" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="870">
               <folding />
             </state>
           </provider>
@@ -73,19 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/register.html.twig">
+      <file leaf-file-name="services.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/services.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="27" selection-start="333" selection-end="3581" vertical-scroll-proportion="0.0" vertical-offset="601" max-vertical-offset="1290">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginType.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/LoginType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="5" selection-start="753" selection-end="999" vertical-scroll-proportion="-19.375" vertical-offset="0" max-vertical-offset="600">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
               <folding />
             </state>
           </provider>
@@ -94,25 +58,65 @@
       <file leaf-file-name="validation.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/validation.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="68" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="315">
+            <state line="4" column="13" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messages.en.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/translations/messages.en.yml">
+      <file leaf-file-name="UserTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Tests/Entity/UserTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1785">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="security.yml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="LoginType.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/LoginType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="49" selection-end="49" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="645">
+              <folding>
+                <element signature="e#49#89#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonType.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/PersonType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="645">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="security.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/config/security.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="50" selection-start="742" selection-end="742" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
+            <state line="5" column="30" selection-start="156" selection-end="156" vertical-scroll-proportion="0.076576576" vertical-offset="24" max-vertical-offset="690">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegionType.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/RegionType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="630">
+              <folding>
+                <element signature="e#6#97#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReuzzeReuzzeBundle.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/ReuzzeReuzzeBundle.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="225">
               <folding />
             </state>
           </provider>
@@ -128,8 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Reuzze/Reuzze/Utility.php" />
-        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/base.css" />
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Persons.php" />
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Addresses.php" />
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Regions.php" />
@@ -138,12 +140,14 @@
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/UserRepository.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/validation.yml" />
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/LoginType.php" />
-        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/login.html.twig" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
-        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Users.php" />
+        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/UserController.php" />
+        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/login.html.twig" />
+        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/register.html.twig" />
+        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/RegisterType.php" />
+        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/validation.yml" />
       </list>
     </option>
   </component>
@@ -809,7 +813,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293944" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5088626" sideWeight="0.67027026" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38921714" sideWeight="0.67027026" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -836,68 +840,80 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Roles.php">
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="13" selection-start="1071" selection-end="1071" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="2865" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Default/home.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="285" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="37" selection-start="1477" selection-end="1477" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="915">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="653">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/RegisterType.php">
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
-          <folding />
+        <state line="116" column="34" selection-start="2772" selection-end="2772" vertical-scroll-proportion="-5.5833335" vertical-offset="1606" max-vertical-offset="6585">
+          <folding>
+            <element signature="e#46#78#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="27" selection-start="789" selection-end="789" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="885">
-          <folding />
+        <state line="116" column="10" selection-start="3269" selection-end="3269" vertical-scroll-proportion="-22.375" vertical-offset="1203" max-vertical-offset="1875">
+          <folding>
+            <element signature="e#50#107#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="72" selection-start="861" selection-end="861" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="660">
+        <state line="2" column="0" selection-start="54" selection-end="54" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="450">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/register.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="27" selection-start="333" selection-end="3581" vertical-scroll-proportion="0.0" vertical-offset="601" max-vertical-offset="1290">
+        <state line="2" column="0" selection-start="54" selection-end="54" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="870">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/validation.yml">
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/AddressType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="68" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/LoginType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="5" selection-start="753" selection-end="999" vertical-scroll-proportion="-19.375" vertical-offset="0" max-vertical-offset="600">
+        <state line="4" column="0" selection-start="49" selection-end="49" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="645">
+          <folding>
+            <element signature="e#49#89#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/PersonType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="689">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/translations/messages.en.yml">
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/RegionType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="666">
+          <folding>
+            <element signature="e#6#97#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/RegisterType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="54" selection-start="476" selection-end="476" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="870">
           <folding />
         </state>
       </provider>
@@ -909,37 +925,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/login.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="80" selection-start="276" selection-end="305" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="615">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="689">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/validation.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="13" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Tests/Entity/UserTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/ReuzzeReuzzeBundle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="666">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="50" selection-start="742" selection-end="742" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="32" selection-start="1041" selection-end="1041" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="3150">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="653">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="16" selection-start="2993" selection-end="2993" vertical-scroll-proportion="-0.5246423" vertical-offset="2175" max-vertical-offset="6630">
+        <state line="5" column="30" selection-start="156" selection-end="156" vertical-scroll-proportion="0.076576576" vertical-offset="24" max-vertical-offset="690">
           <folding />
         </state>
       </provider>

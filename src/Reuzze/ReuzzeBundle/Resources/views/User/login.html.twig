@@ -1,36 +1,25 @@
 {% extends 'ReuzzeReuzzeBundle::layout.html.twig' %}
 
-{# {% block header_title %}Home{% endblock %} #}
-
 {% block content %}
-
     {% if error %}
         <div class="form-error">{{ error.message|trans }}</div>
     {% endif %}
 
     <form novalidate="novalidate" action="{{ path('reuzze_reuzze_login_checkpage') }}" id="form-login" method="post">
-
         <fieldset>
             <legend>Loginpage</legend>
             <dl>
-
                 <dd class="form-group">
                     {{ form_row (form.username, { 'attr': {'class': 'form-control'} }) }}
-                    {{ form_errors(form.username) }}
+                    {# form_errors(form.username) #}
                 </dd>
-
                 <dd class="form-group">
                     {{ form_row (form.password, { 'attr': {'class': 'form-control'} }) }}
-                    {# form_errors (form.userSalt) #}
+                    {# form_errors (form.password) #}
                 </dd>
-
             </dl>
-
         </fieldset>
-
         {{ form_rest(form)}}
         <p><input class="btn btn-primary" name="" type="submit" value="Login!"></p>
     </form>
-
-
 {% endblock %}
