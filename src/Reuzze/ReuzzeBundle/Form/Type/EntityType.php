@@ -17,10 +17,12 @@ class EntityType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('entityTitle'   , 'text', array(
+        $builder
+            ->add('category'     , new CategoryType())
+            ->add('entityTitle'   , 'text', array(
             'label' => 'Title',
             'attr' => array('placeholder' => 'Title')
-        ))
+            ))
             ->add('entityDescription'  , 'text', array(
                 'label' => 'Description',
                 'attr' => array('placeholder' => 'Description')

@@ -24,28 +24,16 @@ class EntityController extends Controller
 
     public function createAction(Request $request)
     {
-        //return $this->render('ReuzzeReuzzeBundle:Default:index.html.twig', array('name' => $name));
+        // AUTHORIZATION
         if (false === $this->get('security.context')->isGranted('ROLE_USER')) {
             throw new AccessDeniedException();
         }
 
+        $entityManager = $this->getDoctrine()->getManager();
+        $categories = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')
+            ->findAll();
+
         $entity = new Entities();
-
-        $user = new Users();
-        $person = new Persons();
-        $address = new Addresses();
-
-        $entity->setUser($this->get('security.context')->getToken()->getUser());
-
-        \Doctrine\Common\Util\Debug::dump($entity->setRegion($user->getPerson()));//->getAddress()->getRegion());
-
-        //$entity->setRegion($user->getPerson($person)->getAddress($address)->getRegion());
-
-        //$entity->setRegion($address->getRegion());
-
-        //$user = new Users();
-
-        //$entity->setUserId($user);
 
         $form = $this->createForm(new EntityType(), $entity);
 
@@ -55,10 +43,10 @@ class EntityController extends Controller
 
             if($form->isValid())
             {
+                $data = $form->getData();
+                $entity->setUser($this->get('security.context')->getToken()->getUser());
                 $date = new \DateTime('NOW');
                 $entity->setentityCreated($date);
-
-                $entityManager = $this->getDoctrine()->getManager();
 
                 $entityManager->persist($entity);
 
@@ -70,6 +58,7 @@ class EntityController extends Controller
 
         return $this->render('ReuzzeReuzzeBundle:Entity:create.html.twig', array(
             'form' => $form->createView(),
+            'categories' => $categories,
         ));
     }
 }

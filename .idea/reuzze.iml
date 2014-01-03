@@ -7,10 +7,10 @@
     <orderEntry type="module-library">
       <library name="PHP">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../../../../../php/lib/php" />
+          <root url="file:///../php/lib/php" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../../../../../php/lib/php" />
+          <root url="file:///../php/lib/php" />
         </SOURCES>
       </library>
     </orderEntry>

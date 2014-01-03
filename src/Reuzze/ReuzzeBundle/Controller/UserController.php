@@ -34,12 +34,12 @@ class UserController extends Controller
 
             if($form->isValid())
             {
-                $entityManager = $this->getDoctrine()->getManager();
-
                 $data = $form->getData();
 
                 $region = $entityManager->getRepository('ReuzzeReuzzeBundle:Regions')->find($data->getPerson()->getAddress()->getRegion()->getRegionName()->getRegionId());
                 $address = $data->getPerson()->getAddress();
+                $address->setAddressLat(floatval($data->getPerson()->getAddress()->getAddressLat()));
+                $address->setAddressLon(floatval($data->getPerson()->getAddress()->getAddressLon()));
                 $address->setRegion($region);
                 $person = $data->getPerson();
                 $person->setAddress($data->getPerson()->getAddress());
@@ -66,10 +66,10 @@ class UserController extends Controller
                 return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
             }
         }
-            return $this->render('ReuzzeReuzzeBundle:User:register.html.twig', array(
-                'form' => $form->createView(),
-                'categories' => $categories,
-            ));
+        return $this->render('ReuzzeReuzzeBundle:User:register.html.twig', array(
+            'form' => $form->createView(),
+            'categories' => $categories,
+        ));
     }
 
     public function loginAction(Request $request)

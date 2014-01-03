@@ -31,6 +31,10 @@
                             {{ form_row (form.entityCondition, { 'attr': {'class': 'form-control'} }) }}
                             {# form_errors (form.password) #}
                         </dd>
+                        <dd class="form-group">
+                            {{ form_row (form.category.categoryName, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_errors (form.category.categoryName) }}
+                        </dd>
                     </dl>
                 </fieldset>
                 {{ form_rest(form)}}
