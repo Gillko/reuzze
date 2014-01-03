@@ -19,7 +19,13 @@ class EntityController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ReuzzeReuzzeBundle:Entity:create.html.twig');
+        $entitymanager = $this->getDoctrine()->getManager();
+        $entities = $entitymanager->getRepository('ReuzzeReuzzeBundle:Entities')
+            ->findAll();
+
+        return $this->render('ReuzzeReuzzeBundle:Entity:index.html.twig', array(
+            'entities' => $entities,
+        ));
     }
 
     public function createAction(Request $request)
@@ -29,6 +35,10 @@ class EntityController extends Controller
             throw new AccessDeniedException();
         }
 
+        $entityManager = $this->getDoctrine()->getManager();
+        $categories = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')
+            ->findAll();
+
         $entity = new Entities();
 
         $user = new Users();
@@ -36,10 +46,12 @@ class EntityController extends Controller
         $address = new Addresses();
 
         $entity->setUser($this->get('security.context')->getToken()->getUser());
+        //$entity->setRegion();
 
-        \Doctrine\Common\Util\Debug::dump($entity->setRegion($user->getPerson()));//->getAddress()->getRegion());
+        //\Doctrine\Common\Util\Debug::dump($entity->setRegion($user->getPerson()));//->getAddress()->getRegion());
 
-        //$entity->setRegion($user->getPerson($person)->getAddress($address)->getRegion());
+        //\Doctrine\Common\Util\Debug::dump($user->getPerson());
+        $entity->setRegion($user->getPerson());
 
         //$entity->setRegion($address->getRegion());
 
@@ -70,6 +82,25 @@ class EntityController extends Controller
 
         return $this->render('ReuzzeReuzzeBundle:Entity:create.html.twig', array(
             'form' => $form->createView(),
+            'categories' => $categories,
+        ));
+    }
+
+    public function showAction($entity_id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $entity = $entityManager->getRepository('ReuzzeReuzzeBundle:Entities')->find($entity_id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Entity entity.');
+        }
+
+        //$deleteForm = $this->createDeleteForm($entity_id);
+
+        return $this->render('ReuzzeReuzzeBundle:Entity:show.html.twig', array(
+            'entity'      => $entity,
+            //'delete_form' => $deleteForm->createView(),
         ));
     }
 }

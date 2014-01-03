@@ -12,6 +12,12 @@ class DefaultController extends Controller
     {
         //return $this->render('ReuzzeReuzzeBundle:Default:index.html.twig', array('name' => $name));
 
-        return $this->render('ReuzzeReuzzeBundle:Default:home.html.twig');
+        $entityManager = $this->getDoctrine()->getManager();
+        $categories = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')
+            ->findAll();
+
+        return $this->render('ReuzzeReuzzeBundle:Default:home.html.twig', array(
+            'categories' => $categories,
+        ));
     }
 }
