@@ -66,7 +66,7 @@ class Persons
     /**
      * @var \Reuzze\ReuzzeBundle\Entity\Addresses
      *
-     * @ORM\ManyToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Addresses")
+     * @ORM\ManyToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Addresses", fetch="EAGER")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="address_id", referencedColumnName="address_id")
      * })

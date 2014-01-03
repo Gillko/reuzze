@@ -105,7 +105,7 @@ class Users implements UserInterface
     /**
      * @var \Reuzze\ReuzzeBundle\Entity\Roles
      *
-     * @ORM\ManyToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Roles")
+     * @ORM\ManyToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Roles", fetch="EAGER")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="role_id", referencedColumnName="role_id")
      * })
