@@ -18,13 +18,8 @@ use Reuzze\ReuzzeBundle\Entity\Roles;
 
 class UserController extends Controller
 {
-    public function registerAction(Request $request){
-
-        if ($this->get('security.context')->isGranted('ROLE_USER'))
-        {
-            return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
-        }
-
+    public function registerAction(Request $request)
+    {
         $user = new Users();
 
         $person = new Persons();
@@ -63,7 +58,6 @@ class UserController extends Controller
                 $user->setRoles($role);
 
                 $date = new \DateTime('NOW');
-
                 $user->setuserCreated($date);
 
                 $entityManager = $this->getDoctrine()->getManager();
@@ -81,7 +75,6 @@ class UserController extends Controller
                 return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
             }
         }
-
             return $this->render('ReuzzeReuzzeBundle:User:register.html.twig', array(
                 'form' => $form->createView()
             ));
@@ -100,7 +93,6 @@ class UserController extends Controller
             $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
             $session->remove(SecurityContext::AUTHENTICATION_ERROR);
         }
-
              return $this->render('ReuzzeReuzzeBundle:User:login.html.twig', array(
                  'form' => $form->createView(),
                  'error' => $error,

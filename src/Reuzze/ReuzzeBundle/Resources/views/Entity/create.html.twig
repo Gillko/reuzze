@@ -1,0 +1,41 @@
+{% extends 'ReuzzeReuzzeBundle::layout.html.twig' %}
+
+{% block content %}
+    <section id="content">
+        <div class="wrap">
+            <form novalidate="novalidate" id="from-Entity" method="post">
+                <fieldset>
+                    <legend>Entity Page</legend>
+                    <dl>
+                        <dd class="form-group">
+                            {{ form_row (form.entityTitle, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_errors(form.entityTitle) }}
+                        </dd>
+                        <dd class="form-group">
+                            {{ form_row (form.entityDescription, { 'attr': {'class': 'form-control'} }) }}
+                            {# form_errors (form.password) #}
+                        </dd>
+                        <dd class="form-group">
+                            {{ form_row (form.entityStarttime, { 'attr': {'class': 'form-control'} }) }}
+                            {# form_errors (form.password) #}
+                        </dd>
+                        <dd class="form-group">
+                            {{ form_row (form.entityEndtime, { 'attr': {'class': 'form-control'} }) }}
+                            {# form_errors (form.password) #}
+                        </dd>
+                        <dd class="form-group">
+                            {{ form_row (form.entityInstantsellingprice, { 'attr': {'class': 'form-control'} }) }}
+                            {# form_errors (form.password) #}
+                        </dd>
+                        <dd class="form-group">
+                            {{ form_row (form.entityCondition, { 'attr': {'class': 'form-control'} }) }}
+                            {# form_errors (form.password) #}
+                        </dd>
+                    </dl>
+                </fieldset>
+                {{ form_rest(form)}}
+                <p><input class="btn btn-primary" name="" type="submit" value="Create Entity!"></p>
+            </form>
+        </div>
+    </section>
+{% endblock %}

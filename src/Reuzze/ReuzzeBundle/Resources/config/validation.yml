@@ -10,4 +10,7 @@ Reuzze\ReuzzeBundle\Entity\Users:
     password:
       - NotBlank: { message: "mag niet leeg zijn.", groups: [login, registration] }
 
-      #      om te lkaten werken moeten forms op novalidate staan
+Reuzze\ReuzzeBundle\Entity\Entities:
+  properties:
+    entityTitle:
+        - NotBlank: { message: "mag niet leeg zijn.", groups: [entities] }

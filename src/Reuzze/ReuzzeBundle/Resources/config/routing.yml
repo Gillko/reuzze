@@ -2,14 +2,17 @@
     #pattern:  /hello/{name}
     #defaults: { _controller: ReuzzeReuzzeBundle:Default:index }
 
+#HOMEPAGE
 reuzze_reuzze_homepage:
     pattern:  /
     defaults: { _controller: ReuzzeReuzzeBundle:Default:home }
 
+#REGISTERPAGE
 reuzze_reuzze_registerpage:
     pattern:  /register
     defaults: { _controller: ReuzzeReuzzeBundle:User:register }
 
+#LOGINPAGE
 reuzze_reuzze_loginpage:
     pattern:  /login
     defaults: { _controller: ReuzzeReuzzeBundle:User:login }
@@ -21,3 +24,12 @@ reuzze_reuzze_login_checkpage:
 reuzze_reuzze_logoutpage:
     pattern:  /logout
     defaults: { _controller: ReuzzeReuzzeBundle:User:logout }
+
+#ENTITYPAGE
+reuzze_reuzze_entitypage:
+    pattern:  /entity
+    defaults: { _controller: ReuzzeReuzzeBundle:Entity:index }
+
+reuzze_reuzze_entitycreatepage:
+    pattern:  /entity/create
+    defaults: { _controller: ReuzzeReuzzeBundle:Entity:create }
