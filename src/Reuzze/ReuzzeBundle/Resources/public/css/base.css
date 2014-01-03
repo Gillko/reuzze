@@ -2,17 +2,11 @@ body, html {
     height: 100%;
 }
 
-#wrap {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    /* Negative indent footer by it's height */
-    margin: 0 auto -350px;
-}
-
-#push,
 footer {
-    height: 350px;
+    width: 100%;
+    position:fixed;
+    bottom:0px;
+    right: 0px;
 }
 
 .container {
@@ -189,6 +183,10 @@ legend {
 form dl {
     padding-left: 50px;
     padding-right: 50px;
+}
+
+#push {
+    padding-bottom: 50px;
 }
 
 

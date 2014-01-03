@@ -55,10 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntityController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="EntityController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/EntityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="40" selection-start="2633" selection-end="2633" vertical-scroll-proportion="0.66831684" vertical-offset="690" max-vertical-offset="1515">
+            <state line="84" column="40" selection-start="2633" selection-end="2633" vertical-scroll-proportion="-16.875" vertical-offset="690" max-vertical-offset="1515">
               <folding />
             </state>
           </provider>
@@ -78,7 +78,7 @@
       <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="23" selection-start="2193" selection-end="2345" vertical-scroll-proportion="-28.75" vertical-offset="0" max-vertical-offset="1290">
+            <state line="63" column="49" selection-start="2898" selection-end="2898" vertical-scroll-proportion="-13.75" vertical-offset="615" max-vertical-offset="1260">
               <folding />
             </state>
           </provider>
@@ -104,19 +104,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Category/index.html.twig">
+      <file leaf-file-name="base.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/base.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="14" selection-start="78" selection-end="501" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="390">
+            <state line="188" column="21" selection-start="2853" selection-end="2853" vertical-scroll-proportion="0.8055105" vertical-offset="2323" max-vertical-offset="3000">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/base.css">
+      <file leaf-file-name="bootstrap.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/libraries/bootstrap/bootstrap.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="27" selection-start="2455" selection-end="2455" vertical-scroll-proportion="-9.038462" vertical-offset="2120" max-vertical-offset="3030">
+            <state line="299" column="4" selection-start="3850" selection-end="3854" vertical-scroll-proportion="-7.730769" vertical-offset="4284" max-vertical-offset="106845">
               <folding />
             </state>
           </provider>
@@ -144,10 +144,10 @@
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/login.html.twig" />
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/register.html.twig" />
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Default/home.html.twig" />
-        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/base.css" />
-        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/EntityController.php" />
+        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/base.css" />
       </list>
     </option>
   </component>
@@ -1072,14 +1072,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="29" width="1400" height="860" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293944" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39512557" sideWeight="0.67027026" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39512557" sideWeight="0.67027026" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1131,13 +1131,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/libraries/bootstrap/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1667" column="6" selection-start="22448" selection-end="22453" vertical-scroll-proportion="-8.038462" vertical-offset="24796" max-vertical-offset="106845">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/register.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="55" selection-start="546" selection-end="546" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="930">
@@ -1166,13 +1159,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/base.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="27" selection-start="2455" selection-end="2455" vertical-scroll-proportion="-9.038462" vertical-offset="2120" max-vertical-offset="3030">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/create.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
@@ -1183,13 +1169,6 @@
     <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="21" selection-start="311" selection-end="311" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="23" selection-start="2193" selection-end="2345" vertical-scroll-proportion="-28.75" vertical-offset="0" max-vertical-offset="1290">
           <folding />
         </state>
       </provider>
@@ -1221,7 +1200,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/EntityController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="40" selection-start="2633" selection-end="2633" vertical-scroll-proportion="0.66831684" vertical-offset="690" max-vertical-offset="1515">
+        <state line="84" column="40" selection-start="2633" selection-end="2633" vertical-scroll-proportion="-16.875" vertical-offset="690" max-vertical-offset="1515">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/libraries/bootstrap/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="299" column="4" selection-start="3850" selection-end="3854" vertical-scroll-proportion="-7.730769" vertical-offset="4284" max-vertical-offset="106845">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="49" selection-start="2898" selection-end="2898" vertical-scroll-proportion="-13.75" vertical-offset="615" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="188" column="21" selection-start="2853" selection-end="2853" vertical-scroll-proportion="0.8055105" vertical-offset="2323" max-vertical-offset="3000">
           <folding />
         </state>
       </provider>
