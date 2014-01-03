@@ -17,9 +17,16 @@ class RegionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('regionName'   , 'text', array(
+        /*$builder->add('regionName'   , 'text', array(
             'label' => 'Region Name',
             'attr' => array('placeholder' => 'Region Name')
+        ));*/
+
+        $builder->add('regionName', 'entity', array(
+            'class' => 'ReuzzeReuzzeBundle:Regions',
+            'property' => 'regionName',
+            'expanded' => false,
+            'multiple' => false
         ));
     }
 

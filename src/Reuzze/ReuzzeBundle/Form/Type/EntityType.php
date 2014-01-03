@@ -44,8 +44,6 @@ class EntityType extends AbstractType
                 'label'         => 'Condition',
                 'attr' => array('placeholder' => 'Condition')
             ))
-
-
         ;
     }
 
