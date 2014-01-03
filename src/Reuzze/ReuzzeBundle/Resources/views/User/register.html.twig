@@ -5,38 +5,51 @@
         <div class="wrap">
             <form novalidate="novalidate" id="form-Register" method="post">
                 <fieldset>
-                    <legend>Registerpage</legend>
+                    <legend>Personalia</legend>
                     <dl>
                         <dd class="form-group">
-                            {{ form_row (form.person.personFirstname, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_row (form.person.personFirstname, { 'attr': {'class': 'form-control', 'autocomplete': 'off'} }) }}
                             {{ form_errors (form.person.personFirstname) }}
                         </dd>
                         <dd class="form-group">
-                            {{ form_row (form.person.personSurname, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_row (form.person.personSurname, { 'attr': {'class': 'form-control', 'autocomplete': 'off'} }) }}
                             {{ form_errors (form.person.personSurname) }}
                         </dd>
+                    </dl>
+                </fieldset>
+                <fieldset>
+                    <legend>Address</legend>
+                    <a class="btn btn-default" id="use_curr_location">Use current location</a>
+                    <dl>
+                        {{ form_row (form.person.address.addressLat, { 'attr': {'class': 'hidden latitude'} }) }}
+                        {{ form_row (form.person.address.addressLon, { 'attr': {'class': 'hidden longitude'} }) }}
+
                         <dd class="form-group">
-                            {{ form_row (form.person.address.addressStreet, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_row (form.person.address.addressStreet, { 'attr': {'class': 'form-control street', 'autocomplete': 'off'} }) }}
                             {{ form_errors (form.person.address.addressStreet) }}
                         </dd>
                         <dd class="form-group">
-                            {{ form_row (form.person.address.addressCity, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_row (form.person.address.addressCity, { 'attr': {'class': 'form-control city', 'autocomplete': 'off'} }) }}
                             {{ form_errors (form.person.address.addressCity) }}
                         </dd>
                         <dd class="form-group">
-                            {{ form_row (form.person.address.addressStreetnr, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_row (form.person.address.addressStreetnr, { 'attr': {'class': 'form-control streetnumber', 'autocomplete': 'off'} }) }}
                             {{ form_errors (form.person.address.addressStreetnr) }}
                         </dd>
                         <dd class="form-group">
-                            {{ form_row (form.person.address.region.regionName, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_row (form.person.address.region.regionName, { 'attr': {'class': 'form-control region'} }) }}
                             {{ form_errors (form.person.address.region.regionName) }}
                         </dd>
+                    </dl>
+                </fieldset>
+                <fieldset>
+                    <legend>Account</legend>
+                    <dl>
                         <dd class="form-group">
-                            {{ form_row (form.username, { 'attr': {'class': 'form-control'} }) }}
-
+                            {{ form_row (form.username, { 'attr': {'class': 'form-control', 'autocomplete': 'off'} }) }}
                         </dd>
                         <dd class="form-group">
-                            {{ form_row (form.userEmail, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_row (form.userEmail, { 'attr': {'class': 'form-control', 'autocomplete': 'off'} }) }}
                             {# form_errors (form.userEmail) #}
                         </dd>
                         <dd class="form-group">

@@ -30,6 +30,8 @@ class AddressType extends AbstractType
                 'label' => 'Street Number',
                 'attr' => array('placeholder' => 'Street Number')
             ))
+            ->add('addressLat', 'hidden')
+            ->add('addressLon', 'hidden')
         ;
     }
 

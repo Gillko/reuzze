@@ -22,26 +22,6 @@ class UserController extends Controller
     {
         $user = new Users();
 
-        $person = new Persons();
-
-        $address = new Addresses();
-
-        $region = new Regions();
-
-        $role = new Roles();
-
-        $address->setRegion($region);
-
-        $user->setPerson($person);
-        $user->setUserRating('1');
-        $user->setRoles($role);
-
-        $person->setAddress($address);
-
-        $address->setRegion($region);
-
-        $role->setRoleName('ROLE_USER');
-
         $form = $this->createForm(new RegisterType(), $user);
 
         if ($request->getMethod() == 'POST')
@@ -50,25 +30,32 @@ class UserController extends Controller
 
             if($form->isValid())
             {
+                $entityManager = $this->getDoctrine()->getManager();
+
+                $data = $form->getData();
+
+                $region = $entityManager->getRepository('ReuzzeReuzzeBundle:Regions')->find($data->getPerson()->getAddress()->getRegion()->getRegionName()->getRegionId());
+                $address = $data->getPerson()->getAddress();
+                $address->setRegion($region);
+                $person = $data->getPerson();
+                $person->setAddress($data->getPerson()->getAddress());
+                $user->setPerson($data->getPerson());
+                $user->setUserRating('10');
+
                 $factory = $this->get('security.encoder_factory');
                 $encoder = $factory->getEncoder($user);
                 $password = $encoder->encodePassword($user->getpassword(), $user->getsalt());
                 $user->setpassword($password);
 
+                $role = $entityManager->getRepository('ReuzzeReuzzeBundle:Roles')->findOneBy(array('roleName' => 'Member'));
                 $user->setRoles($role);
 
                 $date = new \DateTime('NOW');
                 $user->setuserCreated($date);
 
-                $entityManager = $this->getDoctrine()->getManager();
-
-                $entityManager->persist($person);
-
-                $entityManager->persist($user);
                 $entityManager->persist($address);
-                $entityManager->persist($region);
-
-                $entityManager->persist($role);
+                $entityManager->persist($person);
+                $entityManager->persist($user);
 
                 $entityManager->flush();
 

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gillesvanpeteghem
- * Date: 30/12/13
- * Time: 19:52
- */
 
 namespace Reuzze\ReuzzeBundle\Form\Type;
 
@@ -15,9 +9,14 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class RegisterType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('person'     , new PersonType())
+        $builder
+            ->add('person'     , new PersonType())
             ->add('username'   , 'text', array(
                 'label' => 'Username',
                 'attr' => array('placeholder' => 'Username')
@@ -34,6 +33,7 @@ class RegisterType extends AbstractType
                     'attr' => array('class' => 'form-control', 'placeholder' => 'Password'),
                     'label' => 'Password',
                 ),
+                'second_name'    => 'confirm',
                 'second_options' => array(
                     'label' => 'Repeat Password',
                     'attr' => array('class' => 'form-control', 'placeholder' => 'Repeat Password'),
