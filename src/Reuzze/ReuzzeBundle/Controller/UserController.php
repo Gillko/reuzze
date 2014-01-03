@@ -20,6 +20,10 @@ class UserController extends Controller
 {
     public function registerAction(Request $request)
     {
+        $entityManager = $this->getDoctrine()->getManager();
+        $categories = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')
+            ->findAll();
+
         $user = new Users();
 
         $form = $this->createForm(new RegisterType(), $user);
@@ -63,12 +67,17 @@ class UserController extends Controller
             }
         }
             return $this->render('ReuzzeReuzzeBundle:User:register.html.twig', array(
-                'form' => $form->createView()
+                'form' => $form->createView(),
+                'categories' => $categories,
             ));
     }
 
     public function loginAction(Request $request)
     {
+        $entityManager = $this->getDoctrine()->getManager();
+        $categories = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')
+            ->findAll();
+
         $user = new Users();
 
         $form = $this->createForm(new LoginType(), $user);
@@ -83,6 +92,7 @@ class UserController extends Controller
              return $this->render('ReuzzeReuzzeBundle:User:login.html.twig', array(
                  'form' => $form->createView(),
                  'error' => $error,
+                 'categories' => $categories,
              ));
         }
 

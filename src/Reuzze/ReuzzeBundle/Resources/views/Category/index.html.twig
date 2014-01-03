@@ -1,0 +1,21 @@
+{% extends 'ReuzzeReuzzeBundle::layout.html.twig' %}
+
+{% block content %}
+    <section>
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <td>Category</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.categoryName }}</td>
+                </tr>
+            {% endfor  %}
+
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

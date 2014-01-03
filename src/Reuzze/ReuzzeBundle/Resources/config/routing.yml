@@ -27,9 +27,19 @@ reuzze_reuzze_logoutpage:
 
 #ENTITYPAGE
 reuzze_reuzze_entitypage:
-    pattern:  /entity
+    pattern:  /entity/index
     defaults: { _controller: ReuzzeReuzzeBundle:Entity:index }
 
 reuzze_reuzze_entitycreatepage:
     pattern:  /entity/create
     defaults: { _controller: ReuzzeReuzzeBundle:Entity:create }
+
+reuzze_reuzze_entityshowpage:
+    pattern:  /entity/{entity_id}/show
+    defaults: { _controller: ReuzzeReuzzeBundle:Entity:show }
+
+
+#CATEGORYPAGE
+reuzze_reuzze_categoryindexpage:
+    pattern:  /category/index
+    defaults: { _controller: ReuzzeReuzzeBundle:Category:index }

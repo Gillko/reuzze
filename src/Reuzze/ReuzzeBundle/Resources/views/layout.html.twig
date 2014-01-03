@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
@@ -21,10 +21,11 @@
             <nav class="navbar navbar-default" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ path('reuzze_reuzze_homepage') }}"><img id="logo" src="bundles/reuzzereuzze/images/ReUzze_Logo.png" alt="logo"></a>
+                    <a class="navbar-brand" href="{{ path('reuzze_reuzze_homepage') }}"><img id="logo" src="http://localhost:8080/artevelde/3de_schijf_13-14/WDADIII/reuzze/web/bundles/reuzzereuzze/images/ReUzze_Logo.png" alt="logo"></a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <li><a href="{{ path('reuzze_reuzze_entitycreatepage') }}">Place item</a></li>
                     <li><a href="{{ path('reuzze_reuzze_logoutpage') }}">Logout</a></li>
                     {% else %}
                         <li><a href="{{ path('reuzze_reuzze_loginpage') }}">Login</a></li>
@@ -43,13 +44,9 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorie <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        {% for category in categories %}
+                            <li><a href="#">{{ category.categoryName }}</a></li>
+                        {% endfor  %}
                     </ul>
                     <li><a href="#">Meer zoekopties</a></li>
                 </li>
@@ -65,12 +62,10 @@
 {% endblock navigation %}
 
 {# hierna komt het block met de naam 'content' #}
-<div id="wrap">
     <div class="container">
         {% block content %}{% endblock %}
         <div id="push"></div>
     </div>
-</div>
 
 {% block footer %}
     <footer class="panel-footer">

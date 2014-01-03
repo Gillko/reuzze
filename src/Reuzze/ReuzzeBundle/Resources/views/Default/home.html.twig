@@ -3,12 +3,10 @@
 {# {% block header_title %}Home{% endblock %} #}
 
 {% block content %}
-    <div id="wrap">
-        <div class="container">
-            <h1>Homepage</h1>
-
-        </div>
-        <div id="push"></div>
+    <div class="fixed">  <!-- we want this div to be fixed width -->
+        <legend><div id="yellow"></div>CATEGORIES</legend>
+        {% for category in categories %}
+            <p>{{ category.categoryName }}</p>
+        {% endfor  %}
     </div>
-
 {% endblock %}
