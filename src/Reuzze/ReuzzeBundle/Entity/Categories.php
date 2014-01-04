@@ -13,9 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Categories
 {
     /**
-     * @var boolean
+     * @var integer
      *
-     * @ORM\Column(name="category_id", type="boolean")
+     * @ORM\Column(name="category_id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -71,7 +71,7 @@ class Categories
     /**
      * Get categoryId
      *
-     * @return boolean 
+     * @return integer
      */
     public function getCategoryId()
     {
