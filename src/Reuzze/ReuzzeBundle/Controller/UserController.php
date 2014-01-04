@@ -153,7 +153,7 @@ class UserController extends Controller
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirect($this->generateUrl('reuzze_reuzze_editaccountpage', array('user_id' => $user_id)));
+            return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
         }
 
         return $this->render('ReuzzeReuzzeBundle:User:edit.html.twig', array(
@@ -161,6 +161,5 @@ class UserController extends Controller
 
         ));
     }
-
 
 }

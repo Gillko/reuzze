@@ -10,7 +10,7 @@
     <div class="hero-unit filler">
         <form novalidate="novalidate" id="form" action="{{ path('reuzze_reuzze_updateaccount', { 'user_id': user.userId }) }}" method="post" {{ form_enctype(form) }}>
             <fieldset>
-                <legend>Account</legend>
+                <legend><i id="yellow"></i>Edit Account</legend>
                 <dl>
                     <dd class="form-group">
                         {{ form_row (form.username, { 'attr': {'class': 'form-control', 'autocomplete': 'off'} }) }}
