@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af7de74b-86ad-49db-ab2e-9c83cc6a3afe" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/EntityController.php" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/EntityController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/base.css" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/base.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/create.html.twig" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/create.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Default/home.html.twig" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Default/home.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/reuzze.iml" afterPath="$PROJECT_DIR$/.idea/reuzze.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/register.html.twig" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/register.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/validation.yml" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/validation.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="reuzze.iws" />
@@ -31,24 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CategoryController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/CategoryController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/DefaultController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="57" selection-start="107" selection-end="107" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="435">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="home.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Default/home.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -58,28 +38,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntityController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/EntityController.php">
+      <file leaf-file-name="UserController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="16" selection-start="2286" selection-end="2286" vertical-scroll-proportion="0.33333334" vertical-offset="779" max-vertical-offset="1605">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="26.875" vertical-offset="645" max-vertical-offset="2370">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parameters.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <file leaf-file-name="register.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/register.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+            <state line="26" column="41" selection-start="1215" selection-end="1215" vertical-scroll-proportion="-3.4166667" vertical-offset="308" max-vertical-offset="1110">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/create.html.twig">
+      <file leaf-file-name="base.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/base.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="59" selection-start="421" selection-end="468" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="855">
+            <state line="114" column="4" selection-start="1784" selection-end="1784" vertical-scroll-proportion="0.63595504" vertical-offset="1427" max-vertical-offset="3120">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EntityType.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/EntityType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="14.791667" vertical-offset="355" max-vertical-offset="1020">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="validation.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/validation.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="64" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
               <folding />
             </state>
           </provider>
@@ -88,7 +86,16 @@
       <file leaf-file-name="edit.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="43" selection-start="538" selection-end="557" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="555">
+            <state line="9" column="34" selection-start="293" selection-end="323" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="555">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/layout.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1380">
               <folding />
             </state>
           </provider>
@@ -103,19 +110,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/show.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="34" selection-start="338" selection-end="368" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="375">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/login.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="74" selection-end="288" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="555">
+            <state line="12" column="53" selection-start="473" selection-end="514" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="555">
               <folding />
             </state>
           </provider>
@@ -140,9 +138,12 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/EntityController.php" />
-        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/create.html.twig" />
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Default/home.html.twig" />
+        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/validation.yml" />
+        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/create.html.twig" />
+        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/register.html.twig" />
+        <option value="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/base.css" />
       </list>
     </option>
   </component>
@@ -447,6 +448,156 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReuzzeBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReuzzeBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReuzzeBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Form" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Type" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReuzzeBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Reuzze" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReuzzeBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -536,6 +687,11 @@
       <created>1388849876164</created>
       <updated>1388849876164</updated>
     </task>
+    <task id="LOCAL-00001" summary="css - show on homepage entities - create entity page changes">
+      <created>1388851193860</created>
+      <updated>1388851193860</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -571,7 +727,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="css - show on homepage entities - create entity page changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="css - show on homepage entities - create entity page changes" />
+    <MESSAGE value="css - register page" />
+    <option name="LAST_COMMIT_MESSAGE" value="css - register page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -579,41 +736,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/CategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/EntityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="60" selection-start="459" selection-end="459" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1725">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/create.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="21" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/CategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="712">
           <folding />
         </state>
@@ -622,13 +744,6 @@
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="712">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="74" selection-end="288" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="555">
           <folding />
         </state>
       </provider>
@@ -640,23 +755,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="43" selection-start="538" selection-end="557" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="12" selection-start="78" selection-end="1239" vertical-scroll-proportion="-21.875" vertical-offset="0" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/create.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="59" selection-start="421" selection-end="468" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="855">
           <folding />
         </state>
       </provider>
@@ -675,9 +776,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1380">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="34" selection-start="293" selection-end="323" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="53" selection-start="473" selection-end="514" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/EntityController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="16" selection-start="2286" selection-end="2286" vertical-scroll-proportion="0.33333334" vertical-offset="779" max-vertical-offset="1605">
+        <state line="69" column="16" selection-start="2286" selection-end="2286" vertical-scroll-proportion="-0.006134969" vertical-offset="1039" max-vertical-offset="1725">
+          <folding>
+            <element signature="e#50#107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="26.875" vertical-offset="645" max-vertical-offset="2370">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/EntityType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="14.791667" vertical-offset="355" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/validation.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="64" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/create.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="92" selection-start="618" selection-end="618" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/register.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="41" selection-start="1215" selection-end="1215" vertical-scroll-proportion="-3.4166667" vertical-offset="308" max-vertical-offset="1110">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/public/css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="4" selection-start="1784" selection-end="1784" vertical-scroll-proportion="0.63595504" vertical-offset="1427" max-vertical-offset="3120">
           <folding />
         </state>
       </provider>
