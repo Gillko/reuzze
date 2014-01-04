@@ -71,7 +71,7 @@ class Categories
     /**
      * Get categoryId
      *
-     * @return boolean 
+     * @return integer
      */
     public function getCategoryId()
     {

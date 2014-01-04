@@ -21,9 +21,8 @@
                 <td>&#8364; {{ entity.entityInstantsellingprice}}</td>
                 <td>
                     <ul>
-                        <a href="{{ path('reuzze_reuzze_entityshowpage', {'entity_id': entity.entityId}) }}">
-                            <li>{{ entity.entityTitle }}</li></a>
-                            <li>{{ entity.entityDescription }}</li>
+                        <li><a href="{{ path('reuzze_reuzze_entityshowpage', {'entity_id': entity.entityId}) }}"></a>{{ entity.entityTitle }}</li>
+                        <li>{{ entity.entityDescription }}</li>
                     </ul>
                 </td>
                 <td>{{ entity.entityStarttime | date('g:ia / l M j, Y') }}</td>

@@ -6,7 +6,7 @@
     <div class="fixed">  <!-- we want this div to be fixed width -->
         <legend><div id="yellow"></div>CATEGORIES</legend>
         {% for category in categories %}
-            <p>{{ category.categoryName }}</p>
+            <p><a href="">{{ category.categoryName }}</a></p>
         {% endfor  %}
     </div>
 {% endblock %}

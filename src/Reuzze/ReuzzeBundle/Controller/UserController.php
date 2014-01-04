@@ -9,6 +9,7 @@ use Symfony\Component\Security\Core\SecurityContext;
 
 use Reuzze\ReuzzeBundle\Form\Type\LoginType;
 use Reuzze\ReuzzeBundle\Form\Type\RegisterType;
+use Reuzze\ReuzzeBundle\Form\Type\AccountType;
 
 use Reuzze\ReuzzeBundle\Entity\Users;
 use Reuzze\ReuzzeBundle\Entity\Persons;
@@ -105,4 +106,60 @@ class UserController extends Controller
     {
         //
     }
+
+    public function editAction($user_id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $categories = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')
+            ->findAll();
+
+        $user = new Users();
+
+        $user = $entityManager->getRepository('ReuzzeReuzzeBundle:Users')->find($user_id);
+
+        if (!$user) {
+            throw $this->createNotFoundException('Unable to find Users entity.');
+        }
+
+        $form = $this->createForm(new AccountType(), $user);
+
+        return $this->render('ReuzzeReuzzeBundle:User:edit.html.twig', array(
+            'form'   => $form->createView(),
+            'categories' => $categories,
+            'user'      => $user,
+        ));
+    }
+
+    public function updateAction(Request $request, $user_id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $user = $entityManager->getRepository('ReuzzeReuzzeBundle:Users')->find($user_id);
+
+        if (!$user) {
+            throw $this->createNotFoundException('Unable to find Users entity.');
+        }
+
+        $form = $this->createForm(new AccountType(), $user);
+        $form->bind($request);
+
+        if ($form->isValid()) {
+
+            $factory = $this->get('security.encoder_factory');
+            $encoder = $factory->getEncoder($user);
+            $password = $encoder->encodePassword($user->getpassword(), $user->getsalt());
+            $user->setpassword($password);
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->redirect($this->generateUrl('reuzze_reuzze_homepage'));
+        }
+
+        return $this->render('ReuzzeReuzzeBundle:User:edit.html.twig', array(
+            'form'   => $form->createView(),
+
+        ));
+    }
+
 }

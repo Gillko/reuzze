@@ -1,13 +1,20 @@
 {% extends 'ReuzzeReuzzeBundle::layout.html.twig' %}
 
 {% block content %}
-    <section>
-        <h1>
-            {{ entity.entityTitle }}
-        </h1>
-        <dl>
-            <dt>Title:</dt>
-            <dd>{{ entity.entityTitle }}</dd>
-        </dl>
-    </section>
+    <div class="fixed">  <!-- we want this div to be fixed width -->
+        <legend><i id="yellow"></i>CATEGORIES</legend>
+        {% for category in categories %}
+            <p><a href="">{{ category.categoryName }}</a></p>
+        {% endfor  %}
+    </div>
+    <div class="hero-unit filler">
+        <legend><i id="yellow"></i>{{ entity.entityTitle }}</legend>
+        <h1>{{ entity.entityTitle }}</h1>
+        <p><strong>Description:</strong></p>
+        <p>{{ entity.entityDescription }}</p>
+        <p><strong>Price:</strong></p>
+        <p>&#8364; {{ entity.entityInstantsellingprice}}</p>
+        <p><strong>Placed on:</strong></p>
+        <p>{{ entity.entityStarttime | date('l M j, Y / g:ia') }}</p>
+    </div>
 {% endblock %}

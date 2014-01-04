@@ -12,6 +12,15 @@ reuzze_reuzze_registerpage:
     pattern:  /register
     defaults: { _controller: ReuzzeReuzzeBundle:User:register }
 
+reuzze_reuzze_editaccountpage:
+    pattern:  /{user_id}/edit
+    defaults: { _controller: ReuzzeReuzzeBundle:User:edit }
+
+reuzze_reuzze_updateaccount:
+    pattern:  /{user_id}/update
+    defaults: { _controller: "ReuzzeReuzzeBundle:User:update" }
+    requirements: { _method: post }
+
 #LOGINPAGE
 reuzze_reuzze_loginpage:
     pattern:  /login

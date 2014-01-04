@@ -5,9 +5,6 @@ namespace Reuzze\ReuzzeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Reuzze\ReuzzeBundle\Entity\Entities;
-use Reuzze\ReuzzeBundle\Entity\Users;
-use Reuzze\ReuzzeBundle\Entity\Persons;
-use Reuzze\ReuzzeBundle\Entity\Addresses;
 
 use Reuzze\ReuzzeBundle\Form\Type\EntityType;
 
@@ -19,7 +16,13 @@ class EntityController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ReuzzeReuzzeBundle:Entity:create.html.twig');
+        $entityManager = $this->getDoctrine()->getManager();
+        $entities = $entityManager->getRepository('ReuzzeReuzzeBundle:Entities')
+            ->findAll();
+
+        return $this->render('ReuzzeReuzzeBundle:Entity:index.html.twig', array(
+            'entities' => $entities,
+        ));
     }
 
     public function createAction(Request $request)
@@ -63,6 +66,10 @@ class EntityController extends Controller
                 $entity->setEntityStarttime(new \DateTime($starttime));
                 $entity->setEntityEndtime(new \DateTime($endtime));
 
+
+                $data = $form->getData();
+                $entity->setUser($this->get('security.context')->getToken()->getUser());
+
                 $date = new \DateTime('NOW');
                 $entity->setentityCreated($date);
 
@@ -76,6 +83,26 @@ class EntityController extends Controller
 
         return $this->render('ReuzzeReuzzeBundle:Entity:create.html.twig', array(
             'form' => $form->createView(),
+            'categories' => $categories,
+        ));
+    }
+
+    public function showAction($entity_id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $categories = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')
+            ->findAll();
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $entity = $entityManager->getRepository('ReuzzeReuzzeBundle:Entities')->find($entity_id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Entity entity.');
+        }
+
+        return $this->render('ReuzzeReuzzeBundle:Entity:show.html.twig', array(
+            'entity'      => $entity,
             'categories' => $categories,
         ));
     }

@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65276726-29e7-476c-a214-8aaf9f05870f" name="Default" comment="Register &amp; Entity Create changes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/MediaType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
+    <list default="true" id="65276726-29e7-476c-a214-8aaf9f05870f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/AccountType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/edit.html.twig" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Default/index.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/login_check.html.twig" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Categories.php" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Categories.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/CategoryType.php" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/CategoryType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Entities.php" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Entities.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/EntityController.php" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/EntityController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/EntityType.php" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Form/Type/EntityType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Roles.php" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Entity/Roles.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/UserController.php" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/create.html.twig" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/create.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Default/home.html.twig" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Default/home.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/index.html.twig" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/login.html.twig" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/User/login.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/reuzze.iml" afterPath="$PROJECT_DIR$/.idea/reuzze.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/show.html.twig" afterPath="$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Resources/views/Entity/show.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="reuzze.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="65276726-29e7-476c-a214-8aaf9f05870f" time="1388849432416" ignored="false" />
+    <file path="/Dummy.txt" changelist="65276726-29e7-476c-a214-8aaf9f05870f" time="1388849451110" ignored="false" />
     <file path="/page.js" changelist="65276726-29e7-476c-a214-8aaf9f05870f" time="1388778412531" ignored="false" />
     <file path="/UserController.php" changelist="65276726-29e7-476c-a214-8aaf9f05870f" time="1388778766115" ignored="false" />
     <file path="/CategoryType.php" changelist="65276726-29e7-476c-a214-8aaf9f05870f" time="1388787905871" ignored="false" />
@@ -87,7 +88,7 @@
       <file leaf-file-name="EntityController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/EntityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="13" selection-start="1308" selection-end="1308" vertical-scroll-proportion="0.4488778">
+            <state line="50" column="41" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.78553617">
               <folding />
             </state>
           </provider>
@@ -545,6 +546,11 @@
       <created>1386161971326</created>
       <updated>1386161971326</updated>
     </task>
+    <task id="LOCAL-00001" summary="Register &amp; Entity Create changes">
+      <created>1388849453580</created>
+      <updated>1388849453580</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -571,11 +577,12 @@
     <frame x="0" y="22" width="1680" height="974" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293944" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23561811" sideWeight="0.67027026" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23561811" sideWeight="0.67027026" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -756,7 +763,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Reuzze/ReuzzeBundle/Controller/EntityController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="13" selection-start="1308" selection-end="1308" vertical-scroll-proportion="0.4488778">
+        <state line="50" column="41" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.78553617">
           <folding />
         </state>
       </provider>

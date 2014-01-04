@@ -26,6 +26,7 @@
                 <ul class="nav navbar-nav navbar-right">
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                     <li><a href="{{ path('reuzze_reuzze_entitycreatepage') }}">Place item</a></li>
+                    <!--<li><a href="{# path('reuzze_reuzze_editaccountpage') #}">Edit account</a></li>-->
                     <li><a href="{{ path('reuzze_reuzze_logoutpage') }}">Logout</a></li>
                     {% else %}
                         <li><a href="{{ path('reuzze_reuzze_loginpage') }}">Login</a></li>
