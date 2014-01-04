@@ -35,16 +35,34 @@ class EntityController extends Controller
 
         $entity = new Entities();
 
-        $form = $this->createForm(new EntityType(), $entity);
+        $form = $this->createForm(new EntityType($this->getDoctrine()->getEntityManager()), $entity);
 
         if ($request->getMethod() == 'POST')
         {
             $form->bind($request);
 
+            $data = $form->getData();
+
             if($form->isValid())
             {
                 $data = $form->getData();
-                $entity->setUser($this->get('security.context')->getToken()->getUser());
+
+                $categoryid = $data->getCategory()->getCategoryName();
+                $category = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')->findOneByCategoryId($categoryid);
+                $entity->setCategory($category);
+
+                $user = $this->get('security.context')->getToken()->getUser();
+                $entity->setUser($user);
+
+                $region = $entityManager->getRepository('ReuzzeReuzzeBundle:Regions')->findOneByRegionId($user->getPerson()->getAddress()->getRegion());
+                $entity->setRegion($region);
+
+                $starttime = $data->getentityStarttime();
+                $endtime = $data->getentityEndtime();
+
+                $entity->setEntityStarttime(new \DateTime($starttime));
+                $entity->setEntityEndtime(new \DateTime($endtime));
+
                 $date = new \DateTime('NOW');
                 $entity->setentityCreated($date);
 

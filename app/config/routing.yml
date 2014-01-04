@@ -2,3 +2,6 @@ reuzze_reuzze:
     resource: "@ReuzzeReuzzeBundle/Resources/config/routing.yml"
     prefix:   /
 
+oneup_uploader:
+    resource: .
+    type: uploader

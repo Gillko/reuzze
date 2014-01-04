@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Reuzze\ReuzzeBundle\ReuzzeReuzzeBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Oneup\UploaderBundle\OneupUploaderBundle(),
 
         );
 

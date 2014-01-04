@@ -7,20 +7,47 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Doctrine\ORM\EntityManager;
+
 class CategoryType extends AbstractType
 {
+    protected $em;
+
+    public function __construct(EntityManager $em)
+    {
+        $this->em = $em;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        /*$builder->add('regionName'   , 'text', array(
-            'label' => 'Region Name',
-            'attr' => array('placeholder' => 'Region Name')
-        ));*/
+        $category_choices = array();
+        $repository = $this->em->getRepository('ReuzzeReuzzeBundle:Categories');
 
-        $builder->add('categoryName', 'entity', array(
-            'class' => 'ReuzzeReuzzeBundle:Categories',
-            'property' => 'categoryName',
-            'expanded' => false,
-            'multiple' => false
+        $query = $repository->createQueryBuilder('c')
+            ->where('c.categoryParentid IS NULL')
+            ->orderBy('c.categoryId', 'ASC')
+            ->getQuery();
+
+        $parentcategories = $query->getResult();
+        foreach($parentcategories as $pcategory)
+        {
+            $cname = $pcategory->getcategoryName();
+
+            $query = $repository->createQueryBuilder('c')
+                ->where('c.categoryParentid = :pcategory')
+                ->setParameter('pcategory', $pcategory->getcategoryId())
+                ->orderBy('c.categoryId', 'ASC')
+                ->getQuery();
+
+            $childcategories = $query->getResult();
+            foreach($childcategories as $ccategory){
+                $category_choices[$cname][$ccategory->getcategoryId()] = $ccategory->getcategoryName();
+            }
+        }
+
+        $builder->add('categoryName', 'choice', array(
+            'label' => 'Category',
+            'choices' => $category_choices,
         ));
     }
 

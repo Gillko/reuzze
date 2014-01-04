@@ -128,8 +128,6 @@ class Entities
      */
     private $category;
 
-
-
     /**
      * Get entityId
      *

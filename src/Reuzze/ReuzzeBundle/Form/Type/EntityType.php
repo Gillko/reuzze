@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gillesvanpeteghem
- * Date: 30/12/13
- * Time: 18:55
- */
 
 namespace Reuzze\ReuzzeBundle\Form\Type;
 
@@ -13,12 +7,21 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Doctrine\ORM\EntityManager;
+
 class EntityType extends AbstractType
 {
+    protected $em;
+
+    public function __construct(EntityManager $em)
+    {
+        $this->em = $em;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('category'     , new CategoryType())
+            ->add('category'     , new CategoryType($this->em))
             ->add('entityTitle'   , 'text', array(
             'label' => 'Title',
             'attr' => array('placeholder' => 'Title')
@@ -27,14 +30,12 @@ class EntityType extends AbstractType
                 'label' => 'Description',
                 'attr' => array('placeholder' => 'Description')
             ))
-            ->add('entityStarttime', 'datetime', array(
+            ->add('entityStarttime', 'text', array(
                 'label'         => 'Start Time',
-                'empty_value'   => '',
                 'required'      => false
             ))
-            ->add('entityEndtime', 'datetime', array(
+            ->add('entityEndtime', 'text', array(
                 'label'         => 'End Time',
-                'empty_value'   => '',
                 'required'      => false
             ))
             ->add('entityInstantsellingprice', 'money', array(

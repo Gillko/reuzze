@@ -13,9 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Roles
 {
     /**
-     * @var boolean
+     * @var integer
      *
-     * @ORM\Column(name="role_id", type="boolean")
+     * @ORM\Column(name="role_id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
