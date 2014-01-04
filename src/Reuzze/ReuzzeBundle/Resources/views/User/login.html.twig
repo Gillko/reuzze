@@ -1,16 +1,16 @@
 {% extends 'ReuzzeReuzzeBundle::layout.html.twig' %}
 
 {% block content %}
-    <div class="fixed">  <!-- we want this div to be fixed width -->
-        <legend><div id="yellow"></div>CATEGORIES</legend>
+    <div class="fixed">
+        <legend><i id="yellow"></i>CATEGORIES</legend>
         {% for category in categories %}
             <p>{{ category.categoryName }}</p>
         {% endfor  %}
     </div>
-    <div class="hero-unit filler">  <!-- we have removed spanX class -->
+    <div class="hero-unit filler">
     <form novalidate="novalidate" action="{{ path('reuzze_reuzze_login_checkpage') }}" id="form-login" method="post">
         <fieldset>
-            <legend><div id="yellow"></div>LOGIN</legend>
+            <legend><i id="yellow"></i>LOGIN</legend>
             {% if error %}
                 <div class="form-error">{{ error.message|trans }}</div>
             {% endif %}
