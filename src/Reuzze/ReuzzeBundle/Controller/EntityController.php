@@ -5,9 +5,6 @@ namespace Reuzze\ReuzzeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Reuzze\ReuzzeBundle\Entity\Entities;
-use Reuzze\ReuzzeBundle\Entity\Users;
-use Reuzze\ReuzzeBundle\Entity\Persons;
-use Reuzze\ReuzzeBundle\Entity\Addresses;
 
 use Reuzze\ReuzzeBundle\Form\Type\EntityType;
 
@@ -19,7 +16,13 @@ class EntityController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ReuzzeReuzzeBundle:Entity:create.html.twig');
+        $entityManager = $this->getDoctrine()->getManager();
+        $entities = $entityManager->getRepository('ReuzzeReuzzeBundle:Entities')
+            ->findAll();
+
+        return $this->render('ReuzzeReuzzeBundle:Entity:index.html.twig', array(
+            'entities' => $entities,
+        ));
     }
 
     public function createAction(Request $request)
@@ -43,7 +46,7 @@ class EntityController extends Controller
 
             if($form->isValid())
             {
-                $data = $form->getData();
+                //$data = $form->getData();
                 $entity->setUser($this->get('security.context')->getToken()->getUser());
                 $date = new \DateTime('NOW');
                 $entity->setentityCreated($date);
