@@ -5,8 +5,8 @@ body, html {
 footer {
     width: 100%;
     position:fixed;
-    bottom:0px;
-    right: 0px;
+    bottom:0;
+    right: 0;
 }
 
 .container {
@@ -187,6 +187,14 @@ form dl {
 
 #push {
     padding-bottom: 50px;
+}
+
+#use_curr_location {
+    margin-left: 50px;
+    background-color: #e3e316;
+    border-radius: 0px;
+    border: 0px;
+    margin-left: 50px;
 }
 
 

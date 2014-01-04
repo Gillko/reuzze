@@ -3,14 +3,14 @@
 Reuzze\ReuzzeBundle\Entity\Users:
   properties:
     username:
-      - NotBlank: { message: "mag niet leeg zijn.", groups: [login, registration] }
+      - NotBlank: { message: "Please fill in this field", groups: [login, registration] }
     userEmail:
-      - NotBlank: { message: "mag niet leeg zijn.", groups: [login, registration] }
-      - Email: { message: "moet geldig mailadres zijn.", groups: [login, registration] }
+      - NotBlank: { message: "Please fill in this field", groups: [login, registration] }
+      - Email: { message: "This has to be a valid e-mail address", groups: [login, registration] }
     password:
-      - NotBlank: { message: "mag niet leeg zijn.", groups: [login, registration] }
+      - NotBlank: { message: "Please fill in this field", groups: [login, registration] }
 
 Reuzze\ReuzzeBundle\Entity\Entities:
   properties:
     entityTitle:
-        - NotBlank: { message: "mag niet leeg zijn.", groups: [entities] }
+        - NotBlank: { message: "Please fill in this field", groups: [entity] }

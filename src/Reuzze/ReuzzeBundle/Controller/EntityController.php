@@ -87,7 +87,7 @@ class EntityController extends Controller
 
         $entity = new Entities();
 
-        $form = $this->createForm(new EntityType($this->getDoctrine()->getEntityManager()), $entity);
+        $form = $this->createForm(new EntityType($this->getDoctrine()->getManager()), $entity);
 
         if ($request->getMethod() == 'POST')
         {
