@@ -105,4 +105,28 @@ class UserController extends Controller
     {
         //
     }
+
+    public function editAction(Users $user_id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $categories = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')
+            ->findAll();
+
+        $user = new Users();
+
+        $user = $entityManager->getRepository('ReuzzeReuzzeBundle:Users')->find($user_id);
+
+        if (!$user) {
+            throw $this->createNotFoundException('Unable to find Users entity.');
+        }
+
+        $form = $this->createForm(new RegisterType(), $user);
+
+        return $this->render('ReuzzeReuzzeBundle:User:edit.html.twig', array(
+            'form'   => $form->createView(),
+            'categories' => $categories,
+            'user'      => $user,
+        ));
+    }
+
 }

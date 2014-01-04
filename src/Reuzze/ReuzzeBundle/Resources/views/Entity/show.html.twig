@@ -14,5 +14,7 @@
         <p>{{ entity.entityDescription }}</p>
         <p><strong>Price:</strong></p>
         <p>&#8364; {{ entity.entityInstantsellingprice}}</p>
+        <p><strong>Placed on:</strong></p>
+        <p>{{ entity.entityStarttime | date('l M j, Y / g:ia') }}</p>
     </div>
 {% endblock %}
