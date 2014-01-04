@@ -4,9 +4,45 @@
 
 {% block content %}
     <div class="fixed">  <!-- we want this div to be fixed width -->
-        <legend><div id="yellow"></div>CATEGORIES</legend>
+        <legend><i id="yellow"></i>CATEGORIES</legend>
         {% for category in categories %}
             <p><a href="">{{ category.categoryName }}</a></p>
         {% endfor  %}
+    </div>
+    <div class="hero-unit filler">
+        <legend><i id="yellow"></i>New Items</legend>
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <!--<td>ID</td>-->
+                <td>Picture</td>
+                <td>Price</td>
+                <td>Item</td>
+                <td>Start Time</td>
+                <!--<td>End Time</td>-->
+                <!--<td>Condition</td>-->
+            </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <!--<td>{# entity.entityId #}</td>-->
+                    <td>Picture</td>
+                    <td>&#8364; {{ entity.entityInstantsellingprice}}</td>
+                    <td>
+                        <ul>
+                            <li><a href="{{ path('reuzze_reuzze_entityshowpage', {'entity_id': entity.entityId}) }}"></a>{{ entity.entityTitle }}</li>
+                            <li>{{ entity.entityDescription }}</li>
+                        </ul>
+                    </td>
+                    <td>{{ entity.entityStarttime | date('g:ia / l M j, Y') }}</td>
+                    <!--<td>{# entity.entityEndtime | date('g:ia / l M j, Y') #}</td>-->
+
+                    <!--<td>{# entity.entityCondition #}</td>-->
+                </tr>
+            {% endfor  %}
+
+            </tbody>
+        </table>
     </div>
 {% endblock %}
