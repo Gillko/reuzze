@@ -64,4 +64,24 @@ class EntityController extends Controller
             'categories' => $categories,
         ));
     }
+
+    public function showAction($entity_id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $categories = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')
+            ->findAll();
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $entity = $entityManager->getRepository('ReuzzeReuzzeBundle:Entities')->find($entity_id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Entity entity.');
+        }
+
+        return $this->render('ReuzzeReuzzeBundle:Entity:show.html.twig', array(
+            'entity'      => $entity,
+            'categories' => $categories,
+        ));
+    }
 }
