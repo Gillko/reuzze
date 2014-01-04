@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gillesvanpeteghem
- * Date: 30/12/13
- * Time: 18:55
- */
 
 namespace Reuzze\ReuzzeBundle\Form\Type;
 

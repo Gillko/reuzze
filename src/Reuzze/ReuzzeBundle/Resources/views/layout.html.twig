@@ -45,8 +45,13 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorie <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        {% for category in categories %}
-                            <li><a href="#">{{ category.categoryName }}</a></li>
+                        {% for name, category in categories %}
+                            <li>{{ name }}</li>
+                            <ul>
+                                {% for key, string in category %}
+                                    <li><a href="{{ key }}">{{ string }}</a></li>
+                                {% endfor %}
+                            </ul>
                         {% endfor  %}
                     </ul>
                     <li><a href="#">Meer zoekopties</a></li>

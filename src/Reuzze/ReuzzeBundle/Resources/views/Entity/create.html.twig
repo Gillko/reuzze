@@ -3,7 +3,7 @@
 {% block content %}
     <section id="content">
         <div class="wrap">
-            <form novalidate="novalidate" id="from-Entity" method="post">
+            <form novalidate="novalidate" id="form-Entity" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Entity Page</legend>
                     <dl>
@@ -36,12 +36,13 @@
                             {{ form_errors (form.category.categoryName) }}
                         </dd>
                         <dd class="form-group">
-                            <input class="form-control" id="fileupload" type="file" name="entity[files]" data-url="{{ oneup_uploader_endpoint('gallery') }}" multiple />
+                            <input class="form-control" id="fileupload" type="file" name="files[]" data-url="{{ oneup_uploader_endpoint('gallery') }}" multiple />
+                            <div class="fileupload_error"></div>
                         </dd>
                     </dl>
                 </fieldset>
                 {{ form_rest(form)}}
-                <p><input class="btn btn-primary" name="" type="submit" value="Create Entity!"></p>
+                <p><input class="btn btn-primary" id="submitentity" name="" type="submit" value="Create Entity!"></p>
             </form>
         </div>
     </section>
