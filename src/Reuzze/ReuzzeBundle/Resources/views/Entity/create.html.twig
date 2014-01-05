@@ -1,11 +1,23 @@
 {% extends 'ReuzzeReuzzeBundle::layout.html.twig' %}
 
 {% block content %}
-    <section id="content">
-        <div class="wrap">
+    <div class="fixed">  <!-- we want this div to be fixed width -->
+        <legend><i id="yellow"></i>CATEGORIES</legend>
+        <ul>
+            {% for name, category in categories %}
+                <li>{{ name }}</li>
+                <ul>
+                    {% for key, string in category %}
+                        <li><a href="{{ key }}">{{ string }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endfor  %}
+        </ul>
+    </div>
+    <div class="hero-unit filler">
             <form novalidate="novalidate" id="form-Entity" method="post" enctype="multipart/form-data">
                 <fieldset>
-                    <legend>Entity Page</legend>
+                    <legend><i id="yellow"></i>Create Entity</legend>
                     <dl>
                         <dd class="form-group">
                             {{ form_row (form.entityTitle, { 'attr': {'class': 'form-control'} }) }}
@@ -46,5 +58,4 @@
                 <p><input class="btn btn-primary" id="submitentity" name="" type="submit" value="Create Entity!"></p>
             </form>
         </div>
-    </section>
 {% endblock %}
