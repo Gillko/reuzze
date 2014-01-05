@@ -6,17 +6,16 @@
     <div class="fixed categoriessidebar">  <!-- we want this div to be fixed width -->
         <legend><i id="yellow"></i>CATEGORIES</legend>
         <ul>
-        {% for name, category in categories %}
-            <li>{{ name }}</li>
-            <ul>
-                {% for key, string in category %}
-                    <li><a href="{{ path('reuzze_reuzze_categoryentitiespage', {'category_id': key }) }}">{{ string }}</a></li>
-                {% endfor %}
-            </ul>
-        {% endfor  %}
+            {% for name, category in categories %}
+                <li>{{ name }}</li>
+                <ul>
+                    {% for key, string in category %}
+                        <li><a href="{{ path('reuzze_reuzze_categoryentitiespage', {'category_id': key }) }}">{{ string }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endfor  %}
         </ul>
     </div>
-
     <div class="hero-unit filler">
         <legend><i id="yellow"></i>New Items</legend>
         <table class="table table-striped table-bordered">
@@ -24,7 +23,7 @@
             <tr>
                 <!--<td>ID</td>-->
                 <td>Picture</td>
-                <td>Price</td>
+                <td>Price(&#8364;)</td>
                 <td>Item</td>
                 <td>Start Time</td>
                 <!--<td>End Time</td>-->
@@ -32,7 +31,6 @@
             </tr>
             </thead>
             <tbody>
-
             {% for entity in entities %}
                 <tr>
                     <!--<td>{# entity.entityId #}</td>-->
@@ -43,7 +41,7 @@
                     {% else %}
                         <td>No pictures</td>
                     {% endif %}
-                    <td>&#8364; {{ entity.entityInstantsellingprice}}</td>
+                    <td>{{ entity.entityInstantsellingprice}}</td>
                     <td>
                         <ul>
                             <li><a href="{{ path('reuzze_reuzze_entityshowpage', {'entity_id': entity.entityId}) }}">{{ entity.entityTitle }}</a></li>
@@ -56,6 +54,7 @@
                     <!--<td>{# entity.entityCondition #}</td>-->
                 </tr>
             {% endfor  %}
+
 
             </tbody>
         </table>

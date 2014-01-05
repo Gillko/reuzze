@@ -34,31 +34,6 @@ class Favorites
      */
     private $user;
 
-
-
-    /**
-     * Set favoriteId
-     *
-     * @param integer $favoriteId
-     * @return Favorites
-     */
-    public function setFavoriteId($favoriteId)
-    {
-        $this->favoriteId = $favoriteId;
-
-        return $this;
-    }
-
-    /**
-     * Get favoriteId
-     *
-     * @return integer 
-     */
-    public function getFavoriteId()
-    {
-        return $this->favoriteId;
-    }
-
     /**
      * Set entity
      *
