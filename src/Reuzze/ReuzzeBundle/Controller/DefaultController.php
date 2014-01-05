@@ -55,7 +55,6 @@ class DefaultController extends Controller
 
             $images[$entity->getEntityId()] = $im;
             $im = array();
-
         }
 
         return $this->render('ReuzzeReuzzeBundle:Default:home.html.twig', array(

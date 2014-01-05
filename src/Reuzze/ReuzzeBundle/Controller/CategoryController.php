@@ -68,9 +68,23 @@ class CategoryController extends Controller
             }
         }
 
+        $images = array();
+        $im = array();
+
+        foreach($entities as $entity){
+            $media = $entityManager->getRepository('ReuzzeReuzzeBundle:Media')->findByEntity($entity);
+            foreach($media as $image){
+                $im[] = $image->getmediumUrl();
+            }
+
+            $images[$entity->getEntityId()] = $im;
+            $im = array();
+        }
+
         return $this->render('ReuzzeReuzzeBundle:Category:entities.html.twig', array(
             'entities'        => $entities,
-            'categories'    => $category_choices
+            'categories'    => $category_choices,
+            'images'     => $images
         ));
     }
 }

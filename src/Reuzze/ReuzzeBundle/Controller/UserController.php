@@ -71,7 +71,7 @@ class UserController extends Controller
 
                 $factory = $this->get('security.encoder_factory');
                 $encoder = $factory->getEncoder($user);
-                $password = $encoder->encodePassword($user->getpassword(), $user->getsalt());
+                $password = $encoder->encodePassword($user->getpassword(), $user->getSalt());
                 $user->setpassword($password);
 
                 $role = $entityManager->getRepository('ReuzzeReuzzeBundle:Roles')->findOneBy(array('roleName' => 'Member'));
@@ -135,12 +135,13 @@ class UserController extends Controller
             $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
             $session->remove(SecurityContext::AUTHENTICATION_ERROR);
         }
-             return $this->render('ReuzzeReuzzeBundle:User:login.html.twig', array(
-                 'form' => $form->createView(),
-                 'error' => $error,
-                 'categories' => $category_choices,
-             ));
-        }
+
+        return $this->render('ReuzzeReuzzeBundle:User:login.html.twig', array(
+         'form' => $form->createView(),
+         'error' => $error,
+         'categories' => $category_choices,
+        ));
+    }
 
     public function loginCheckAction()
     {

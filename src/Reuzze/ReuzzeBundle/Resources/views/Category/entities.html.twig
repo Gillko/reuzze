@@ -21,6 +21,7 @@
                 <thead>
                 <tr>
                     <!--<td>ID</td>-->
+                    <td>Picture</td>
                     <td>Price(&#8364;)</td>
                     <td>Item</td>
                     <td>Start Time</td>
@@ -32,6 +33,13 @@
                 {% for entity in entities %}
                     <tr>
                         <!--<td>{# entity.entityId #}</td>-->
+                        {% set index = entity.entityId %}
+                        {% if images[index]|length != 0 %}
+                            {% set firstimageurl = 'uploads/gallery/' ~ images[index][0] %}
+                            <td><img width="30px" height="30px" src="{{ asset(firstimageurl) }}" alt="picture"></td>
+                        {% else %}
+                            <td>No pictures</td>
+                        {% endif %}
                         <td>{{ entity.entityInstantsellingprice}}</td>
                         <td>
                             <ul>
