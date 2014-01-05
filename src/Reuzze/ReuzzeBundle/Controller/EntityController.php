@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Reuzze\ReuzzeBundle\Entity\Entities;
 use Reuzze\ReuzzeBundle\Entity\Bids;
+use Reuzze\ReuzzeBundle\Entity\Media;
 
 use Reuzze\ReuzzeBundle\Form\Type\EntityType;
 use Reuzze\ReuzzeBundle\Form\Type\BidType;
@@ -14,6 +15,8 @@ use Reuzze\ReuzzeBundle\Form\Type\BidType;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 use Symfony\Component\HttpFoundation\Request;
+
+use Symfony\Component\HttpFoundation\Response;
 
 class EntityController extends Controller
 {
@@ -44,8 +47,8 @@ class EntityController extends Controller
             }
         }
 
-        $entities = $entityManager->getRepository('ReuzzeReuzzeBundle:Entities')
-            ->findAll();
+        $entities = $entityManager->getRepository('ReuzzeReuzzeBundle:Entities');
+
 
         return $this->render('ReuzzeReuzzeBundle:Entity:index.html.twig', array(
             'entities' => $entities,
@@ -100,10 +103,6 @@ class EntityController extends Controller
             {
                 $data = $form->getData();
 
-                $files = $request->files->get('files');
-                var_dump($files);
-                die();
-
                 $categoryid = $data->getCategory()->getCategoryName();
                 $category = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')->findOneByCategoryId($categoryid);
                 $entity->setCategory($category);
@@ -126,6 +125,21 @@ class EntityController extends Controller
                 $entity->setentityCreated($date);
 
                 $entityManager->persist($entity);
+
+                $files = $request;
+                $files = $files->request->get('myFiles');
+                $parts = explode(',', $files);
+                unset($parts[count($parts)-1]);
+                for($i = 0; $i < count($parts); $i++){
+                    if($i % 2 != 0){
+                        $media = new Media();
+                        $media->setEntity($entity);
+                        $media->setMediumUrl($parts[$i-1]);
+                        $media->setMediumType('i');
+                        $media->setMediumMimetype($parts[$i]);
+                        $entityManager->persist($media);
+                    }
+                }
 
                 $entityManager->flush();
 
@@ -187,6 +201,25 @@ class EntityController extends Controller
 
         $form = $this->createForm(new BidType($this->getDoctrine()->getEntityManager()), $bid);
 
+        $favorite = $entityManager->getRepository('ReuzzeReuzzeBundle:Favorites');
+        $query = $favorite->createQueryBuilder('f')
+            ->where('f.user = :puser')
+            ->andWhere('f.entity = :pentity')
+            ->setParameter('puser', $user)
+            ->setParameter('pentity', $entity)
+            ->getQuery();
+
+        $array = $query->getResult();
+
+        $media = $entityManager->getRepository('ReuzzeReuzzeBundle:Media')->findByEntity($entity);
+
+        if(sizeof($array) > 0){
+            $favorite = "true";
+        }
+        else{
+            $favorite = "false";
+        }
+
         if ($request->getMethod() == 'POST')
         {
             $form->bind($request);
@@ -210,7 +243,72 @@ class EntityController extends Controller
             'form'          => $form->createView(),
             'entity'        => $entity,
             'bids'          => $bids,
-            'categories'    => $category_choices
+            'categories'    => $category_choices,
+            'favorite'      => $favorite,
+            'media'         => $media
         ));
+    }
+
+    public function addtofavoritesAction($entity_id)
+    {
+        try{
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $entity = $entityManager->getRepository('ReuzzeReuzzeBundle:Entities')->find($entity_id);
+            $user = $this->get('security.context')->getToken()->getUser();
+
+            $favorite = new Favorites();
+            $favorite->setEntity($entity);
+            $favorite->setUser($user);
+
+            $entityManager->persist($favorite);
+
+            $entityManager->flush();
+
+            $response = array("code" => 100, "success" => true);
+
+            return new Response(json_encode($response));
+        }
+        catch(Exception $e){
+            $response = array("code" => 500, "success" => false);
+            return new Response(json_encode($response));
+
+        }
+    }
+
+    public function removefromfavoritesAction($entity_id)
+    {
+        try{
+
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $entity = $entityManager->getRepository('ReuzzeReuzzeBundle:Entities')->find($entity_id);
+            $user = $this->get('security.context')->getToken()->getUser();
+
+            $repository = $entityManager->getRepository('ReuzzeReuzzeBundle:Favorites');
+
+            $query = $repository->createQueryBuilder('f')
+                ->where('f.user = :puser')
+                ->andWhere('f.entity = :pentity')
+                ->setParameter('puser', $user)
+                ->setParameter('pentity', $entity)
+                ->setMaxResults(1)
+                ->getQuery();
+
+            $favorite = $query->getResult()[0];
+
+            $entityManager->remove($favorite);
+
+            $entityManager->flush();
+
+            $response = array("code" => 100, "success" => true);
+
+            return new Response(json_encode($response));
+        }
+        catch(Exception $e){
+            $response = array("code" => 500, "success" => false);
+            return new Response(json_encode($response));
+
+        }
     }
 }

@@ -44,11 +44,23 @@ reuzze_reuzze_entitycreatepage:
     defaults: { _controller: ReuzzeReuzzeBundle:Entity:create }
 
 reuzze_reuzze_entityshowpage:
-    pattern:  /entity/{entity_id}/show
+    pattern:  /entity/show/{entity_id}
     defaults: { _controller: ReuzzeReuzzeBundle:Entity:show }
+
+reuzze_reuzze_addtofavorites:
+    pattern:  /entity/addtofavorites/{entity_id}
+    defaults: { _controller: ReuzzeReuzzeBundle:Entity:addtofavorites }
+
+reuzze_reuzze_removefromfavorites:
+    pattern:  /entity/removefromfavorites/{entity_id}
+    defaults: { _controller: ReuzzeReuzzeBundle:Entity:removefromfavorites }
 
 
 #CATEGORYPAGE
 reuzze_reuzze_categoryindexpage:
     pattern:  /category/index
     defaults: { _controller: ReuzzeReuzzeBundle:Category:index }
+
+reuzze_reuzze_categoryentitiespage:
+    pattern:  /category/entities/{category_id}
+    defaults: { _controller: ReuzzeReuzzeBundle:Category:entities }

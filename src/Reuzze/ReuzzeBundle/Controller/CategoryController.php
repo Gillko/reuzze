@@ -8,6 +8,8 @@ use Reuzze\ReuzzeBundle\Entity\Categories;
 use Reuzze\ReuzzeBundle\Entity\Users;
 use Reuzze\ReuzzeBundle\Entity\Persons;
 use Reuzze\ReuzzeBundle\Entity\Addresses;
+use Reuzze\ReuzzeBundle\Entity\Entities;
+use Reuzze\ReuzzeBundle\Entity\Bids;
 
 use Reuzze\ReuzzeBundle\Form\Type\EntityType;
 
@@ -28,8 +30,47 @@ class CategoryController extends Controller
         ));
     }
 
-    public function createAction(Request $request)
+    public function entitiesAction($category_id, Request $request)
     {
+        $entityManager = $this->getDoctrine()->getManager();
 
+        $category = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')->find($category_id);
+        $entities = $entityManager->getRepository('ReuzzeReuzzeBundle:Entities');
+
+        $query = $entities->createQueryBuilder('e')
+            ->where('e.category = :pcategory')
+            ->setParameter('pcategory', $category)
+            ->orderBy('e.entityId', 'DESC')
+            ->getQuery();
+
+        $entities = $query->getResult();
+
+        $repository = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories');
+
+        $query = $repository->createQueryBuilder('c')
+            ->where('c.categoryParentid IS NULL')
+            ->orderBy('c.categoryId', 'ASC')
+            ->getQuery();
+        $parentcategories = $query->getResult();
+        foreach($parentcategories as $pcategory)
+        {
+            $cname = $pcategory->getcategoryName();
+
+            $query = $repository->createQueryBuilder('c')
+                ->where('c.categoryParentid = :pcategory')
+                ->setParameter('pcategory', $pcategory->getcategoryId())
+                ->orderBy('c.categoryId', 'ASC')
+                ->getQuery();
+
+            $childcategories = $query->getResult();
+            foreach($childcategories as $ccategory){
+                $category_choices[$cname][$ccategory->getcategoryId()] = $ccategory->getcategoryName();
+            }
+        }
+
+        return $this->render('ReuzzeReuzzeBundle:Category:entities.html.twig', array(
+            'entities'        => $entities,
+            'categories'    => $category_choices
+        ));
     }
 }

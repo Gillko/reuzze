@@ -36,6 +36,7 @@
                             {{ form_errors (form.category.categoryName) }}
                         </dd>
                         <dd class="form-group">
+                            <input type="hidden" name="myFiles" id="myFiles" value="">
                             <input class="form-control" id="fileupload" type="file" name="files[]" data-url="{{ oneup_uploader_endpoint('gallery') }}" multiple />
                             <div class="fileupload_error"></div>
                         </dd>

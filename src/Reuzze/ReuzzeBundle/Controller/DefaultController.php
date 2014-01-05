@@ -12,8 +12,6 @@ class DefaultController extends Controller
     {
 
         $entityManager = $this->getDoctrine()->getManager();
-        $entities = $entityManager->getRepository('ReuzzeReuzzeBundle:Entities')
-            ->findAll();
         $repository = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories');
 
         $query = $repository->createQueryBuilder('c')
@@ -37,6 +35,14 @@ class DefaultController extends Controller
                 $category_choices[$cname][$ccategory->getcategoryId()] = $ccategory->getcategoryName();
             }
         }
+
+        $entities = $entityManager->getRepository('ReuzzeReuzzeBundle:Entities');
+        $query = $entities->createQueryBuilder('p')
+            ->orderBy('p.entityId', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery();
+
+        $entities = $query->getResult();
 
         return $this->render('ReuzzeReuzzeBundle:Default:home.html.twig', array(
             'entities'  => $entities,

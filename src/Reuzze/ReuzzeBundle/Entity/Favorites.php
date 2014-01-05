@@ -12,18 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Favorites
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="favorite_id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $favoriteId;
+
 
     /**
      * @var \Reuzze\ReuzzeBundle\Entity\Entities
-     *
+     * @ORM\Id
      * @ORM\OneToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Entities")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="entity_id", referencedColumnName="entity_id", unique=true)

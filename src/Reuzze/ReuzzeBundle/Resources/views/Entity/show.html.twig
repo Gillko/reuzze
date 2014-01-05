@@ -23,6 +23,11 @@
         <p>&#8364; {{ entity.entityInstantsellingprice}}</p>
         <p><strong>Placed on:</strong></p>
         <p>{{ entity.entityStarttime | date('l M j, Y / g:ia') }}</p>
+        <h3>Images</h3>
+        {% for image in media %}
+            {% set url = 'uploads/gallery/' ~ image.mediumUrl %}
+            <img src="{{ asset(url) }}" alt="image" />
+        {% endfor  %}
         <h3>Bids</h3>
         {% for bid in bids %}
             <p>{{ bid.bidAmount }}€ by {{ bid.user.userName }}</p>
@@ -40,6 +45,12 @@
             {{ form_rest(form)}}
             <p><input class="btn btn-primary" name="" type="submit" value="Place Bid"></p>
         </form>
+        {% if favorite == 'false' %}
+            <a href="" id="{{ entity.entityId }}" class="addtofavorites">Add to favorites</a>
+        {% else %}
+            <a href="" id="{{ entity.entityId }}" class="deletefromfavorites">Remove from favorites</a>
+        {% endif %}
+
     </div>
 
 
