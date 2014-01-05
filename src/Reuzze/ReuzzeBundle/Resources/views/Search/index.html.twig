@@ -1,0 +1,30 @@
+{% extends 'ReuzzeReuzzeBundle::layout.html.twig' %}
+
+{% block content %}
+    <section id="content">
+        <div class="wrap">
+            <form novalidate="novalidate" id="form-Search" method="post">
+                <fieldset>
+                    <legend>Search</legend>
+                    <dl>
+                        <dd class="form-group">
+                            {{ form_row (form.entityTitle, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_errors(form.entityTitle) }}
+                        </dd>
+
+                        <dd class="form-group">
+                            {{ form_row (form.category.categoryName, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_errors (form.category.categoryName) }}
+                        </dd>
+                        <dd class="form-group">
+                            {{ form_row (form.region.regionName, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_errors (form.region.regionName) }}
+                        </dd>
+                    </dl>
+                </fieldset>
+                {{ form_rest(form)}}
+                <p><input class="btn btn-primary" name="" type="submit" value="Search Entities!"></p>
+            </form>
+        </div>
+    </section>
+{% endblock %}

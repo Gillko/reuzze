@@ -64,3 +64,13 @@ reuzze_reuzze_categoryindexpage:
 reuzze_reuzze_categoryentitiespage:
     pattern:  /category/entities/{category_id}
     defaults: { _controller: ReuzzeReuzzeBundle:Category:entities }
+
+#SEARCHPAGE
+reuzze_reuzze_searchindexpage:
+    pattern:  /search/index
+    defaults: { _controller: ReuzzeReuzzeBundle:Search:index }
+
+reuzze_reuzze_entitiesfromsearchpage:
+    pattern:  /search/entitiesfromsearch/{entity_title}/{category_id}/{region_id}
+    defaults: { _controller: ReuzzeReuzzeBundle:Search:entitiesfromsearch }
+

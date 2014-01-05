@@ -66,6 +66,9 @@
 
     var myList = '';
     var i = 0;
+    var index = 0;
+    var maxFiles = 3;
+    var toMuchFiles = false;
     $('#fileupload').fileupload({
         dataType: 'json',
         add: function (e, data) {
@@ -91,13 +94,7 @@
             submitForm();
         }
 
-    }).bind('fileuploadadd', function (e, data) {
-            var fileCount = data.files.length;
-            if (fileCount > maxFiles) {
-                alert("The max number of files is "+maxFiles);
-                return false;
-            }
-        });
+    });
 })();
 
 function submitForm(){
