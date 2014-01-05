@@ -3,6 +3,7 @@
 {% block content %}
     <div class="fixed categoriessidebar">  <!-- we want this div to be fixed width -->
         <legend><i id="yellow"></i>CATEGORIES</legend>
+        <ul>
         {% for name, category in categories %}
             <li>{{ name }}</li>
             <ul>
@@ -11,6 +12,7 @@
                 {% endfor %}
             </ul>
         {% endfor  %}
+        </ul>
     </div>
     <div class="hero-unit filler">
     <form novalidate="novalidate" action="{{ path('reuzze_reuzze_login_checkpage') }}" id="form-login" method="post">

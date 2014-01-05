@@ -25,9 +25,9 @@
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                    <li><a href="{{ path('reuzze_reuzze_entitycreatepage') }}">Place item</a></li>
+                    <li><a class="btn bnt-default" href="{{ path('reuzze_reuzze_entitycreatepage') }}">Place item</a></li>
                     <!--<li><a href="{# path('reuzze_reuzze_editaccountpage') #}">Edit account</a></li>-->
-                    <li><a href="{{ path('reuzze_reuzze_logoutpage') }}">Logout</a></li>
+                    <li><a class="btn bnt-default" href="{{ path('reuzze_reuzze_logoutpage') }}">Logout</a></li>
                     {% else %}
                         <li><a href="{{ path('reuzze_reuzze_loginpage') }}">Login</a></li>
                         <li><a href="{{ path('reuzze_reuzze_registerpage') }}">Registreer</a></li>
@@ -42,7 +42,7 @@
     <nav class="navbar navbar-default1">
         <div class="container">
             <ul class="nav navbar-nav">
-                <li class="dropdown">
+                <li class="dropdown ddncategories">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorie <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         {% for name, category in categories %}
@@ -54,10 +54,10 @@
                             </ul>
                         {% endfor  %}
                     </ul>
-                    <li><a href="{{ path('reuzze_reuzze_searchindexpage') }}">Meer zoekopties</a></li>
+                    <li><a class="searchoptions" href="{{ path('reuzze_reuzze_searchindexpage') }}">Meer zoekopties</a></li>
                 </li>
             </ul>
-            <form class="navbar-form navbar-left" role="search">
+            <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Geef een zoekterm in">
                 </div>

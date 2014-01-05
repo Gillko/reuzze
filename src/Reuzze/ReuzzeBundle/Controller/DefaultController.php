@@ -44,9 +44,24 @@ class DefaultController extends Controller
 
         $entities = $query->getResult();
 
+        $images = array();
+        $im = array();
+
+        foreach($entities as $entity){
+            $media = $entityManager->getRepository('ReuzzeReuzzeBundle:Media')->findByEntity($entity);
+            foreach($media as $image){
+                $im[] = $image->getmediumUrl();
+            }
+
+            $images[$entity->getEntityId()] = $im;
+            $im = array();
+
+        }
+
         return $this->render('ReuzzeReuzzeBundle:Default:home.html.twig', array(
             'entities'  => $entities,
             'categories' => $category_choices,
+            'images'     => $images
         ));
     }
 }

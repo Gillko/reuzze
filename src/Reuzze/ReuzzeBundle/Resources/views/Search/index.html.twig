@@ -3,6 +3,7 @@
 {% block content %}
     <div class="fixed categoriessidebar">  <!-- we want this div to be fixed width -->
         <legend><i id="yellow"></i>CATEGORIES</legend>
+        <ul>
         {% for name, category in categories %}
             <li>{{ name }}</li>
             <ul>
@@ -11,6 +12,7 @@
                 {% endfor %}
             </ul>
         {% endfor  %}
+        </ul>
     </div>
     <section id="content">
         <div class="wrap">
@@ -31,10 +33,10 @@
                             {{ form_row (form.region.regionName, { 'attr': {'class': 'form-control'} }) }}
                             {{ form_errors (form.region.regionName) }}
                         </dd>
+                        <input class="btn btn-primary" name="" type="submit" value="Search Entities!">
                     </dl>
                 </fieldset>
                 {{ form_rest(form)}}
-                <p><input class="btn btn-primary" name="" type="submit" value="Search Entities!"></p>
             </form>
         </div>
     </section>

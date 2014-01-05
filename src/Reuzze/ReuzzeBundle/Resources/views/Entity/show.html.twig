@@ -26,15 +26,30 @@
             <p>{{ entity.entityStarttime | date('l M j, Y / g:ia') }}</p>
         </div>
         <legend><i id="yellow"></i>Images</legend>
+        {% if media|length != 0 %}
+            {% for image in media %}
+                {% set url = 'uploads/gallery/' ~ image.mediumUrl %}
+                <img src="{{ asset(url) }}" class="showimagedetailitem" alt="image" />
+            {% endfor  %}
+        {% else %}
+            <div class="showdetailitem">
+                <p>No images from this entity.</p>
+            </div>
+        {% endif %}
+        <legend><i id="yellow"></i>Bids</legend>
+        {% if bids|length != 0 %}
+            <div class="showdetailitem">
+            {% for bid in bids %}
+                <p>{{ bid.bidAmount }}€ by {{ bid.user.userName }}</p>
+            {% endfor  %}
+            </div>
+        {% else %}
+            <div class="showdetailitem">
+                <p>No bids placed yet. Be the first one!</p>
+            </div>
+        {% endif %}
 
-        {% for image in media %}
-            {% set url = 'uploads/gallery/' ~ image.mediumUrl %}
-            <img src="{{ asset(url) }}" class="showimagedetailitem" alt="image" />
-        {% endfor  %}
-        <p></p>
-        {% for bid in bids %}
-            <p>{{ bid.bidAmount }}€ by {{ bid.user.userName }}</p>
-        {% endfor  %}
+
         <form novalidate="novalidate" id="form-Bid" method="post">
             <fieldset>
                 <legend><i id="yellow"></i>Place Bid</legend>
@@ -48,13 +63,12 @@
             {{ form_rest(form)}}
             <p><input class="btn btn-primary" name="" type="submit" value="Place Bid"></p>
         </form>
-        <legend><i id="yellow"></i>Add to favorites</legend>
+        <legend><i id="yellow"></i>Favorites</legend>
         {% if favorite == 'false' %}
             <button id="{{ entity.entityId }}" class="btn btn-primary addtofavorites">Add to favorites</button>
         {% else %}
             <button id="{{ entity.entityId }}" class="btn btn-primary deletefromfavorites">Remove from favorites</button>
         {% endif %}
-
     </div>
 
 

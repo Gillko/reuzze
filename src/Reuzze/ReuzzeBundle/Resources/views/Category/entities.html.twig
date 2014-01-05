@@ -3,6 +3,7 @@
 {% block content %}
     <div class="fixed categoriessidebar">  <!-- we want this div to be fixed width -->
         <legend><i id="yellow"></i>CATEGORIES</legend>
+        <ul>
         {% for name, category in categories %}
             <li>{{ name }}</li>
             <ul>
@@ -11,6 +12,7 @@
                 {% endfor %}
             </ul>
         {% endfor  %}
+        </ul>
     </div>
     {% if entities|length != 0 %}
         <div class="hero-unit filler">
