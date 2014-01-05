@@ -22,8 +22,30 @@ class UserController extends Controller
     public function registerAction(Request $request)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $categories = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')
-            ->findAll();
+
+        $repository = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories');
+
+        $query = $repository->createQueryBuilder('c')
+            ->where('c.categoryParentid IS NULL')
+            ->orderBy('c.categoryId', 'ASC')
+            ->getQuery();
+
+        $parentcategories = $query->getResult();
+        foreach($parentcategories as $pcategory)
+        {
+            $cname = $pcategory->getcategoryName();
+
+            $query = $repository->createQueryBuilder('c')
+                ->where('c.categoryParentid = :pcategory')
+                ->setParameter('pcategory', $pcategory->getcategoryId())
+                ->orderBy('c.categoryId', 'ASC')
+                ->getQuery();
+
+            $childcategories = $query->getResult();
+            foreach($childcategories as $ccategory){
+                $category_choices[$cname][$ccategory->getcategoryId()] = $ccategory->getcategoryName();
+            }
+        }
 
         $user = new Users();
 
@@ -69,15 +91,38 @@ class UserController extends Controller
         }
         return $this->render('ReuzzeReuzzeBundle:User:register.html.twig', array(
             'form' => $form->createView(),
-            'categories' => $categories,
+            'categories' => $category_choices,
         ));
     }
 
     public function loginAction(Request $request)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $categories = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')
-            ->findAll();
+
+        $repository = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories');
+
+        $query = $repository->createQueryBuilder('c')
+            ->where('c.categoryParentid IS NULL')
+            ->orderBy('c.categoryId', 'ASC')
+            ->getQuery();
+
+        $parentcategories = $query->getResult();
+
+        foreach($parentcategories as $pcategory)
+        {
+            $cname = $pcategory->getcategoryName();
+
+            $query = $repository->createQueryBuilder('c')
+                ->where('c.categoryParentid = :pcategory')
+                ->setParameter('pcategory', $pcategory->getcategoryId())
+                ->orderBy('c.categoryId', 'ASC')
+                ->getQuery();
+
+            $childcategories = $query->getResult();
+            foreach($childcategories as $ccategory){
+                $category_choices[$cname][$ccategory->getcategoryId()] = $ccategory->getcategoryName();
+            }
+        }
 
         $user = new Users();
 
@@ -93,7 +138,7 @@ class UserController extends Controller
              return $this->render('ReuzzeReuzzeBundle:User:login.html.twig', array(
                  'form' => $form->createView(),
                  'error' => $error,
-                 'categories' => $categories,
+                 'categories' => $category_choices,
              ));
         }
 
@@ -110,8 +155,29 @@ class UserController extends Controller
     public function editAction($user_id)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $categories = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories')
-            ->findAll();
+        $repository = $entityManager->getRepository('ReuzzeReuzzeBundle:Categories');
+
+        $query = $repository->createQueryBuilder('c')
+            ->where('c.categoryParentid IS NULL')
+            ->orderBy('c.categoryId', 'ASC')
+            ->getQuery();
+
+        $parentcategories = $query->getResult();
+        foreach($parentcategories as $pcategory)
+        {
+            $cname = $pcategory->getcategoryName();
+
+            $query = $repository->createQueryBuilder('c')
+                ->where('c.categoryParentid = :pcategory')
+                ->setParameter('pcategory', $pcategory->getcategoryId())
+                ->orderBy('c.categoryId', 'ASC')
+                ->getQuery();
+
+            $childcategories = $query->getResult();
+            foreach($childcategories as $ccategory){
+                $category_choices[$cname][$ccategory->getcategoryId()] = $ccategory->getcategoryName();
+            }
+        }
 
         $user = new Users();
 
@@ -125,7 +191,7 @@ class UserController extends Controller
 
         return $this->render('ReuzzeReuzzeBundle:User:edit.html.twig', array(
             'form'   => $form->createView(),
-            'categories' => $categories,
+            'categories' => $category_choices,
             'user'      => $user,
         ));
     }
