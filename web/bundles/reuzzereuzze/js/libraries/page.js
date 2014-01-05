@@ -69,16 +69,10 @@
     $('#fileupload').fileupload({
         dataType: 'json',
         add: function (e, data) {
-            var ext = $('#fileupload').val().split('.').pop().toLowerCase();
-            if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
-                $("<p>Invalid extension. Only images allowed!</p>").appendTo('.fileupload_error');
-                $('.fileupload_error').show();
-            }
-            else{
-                $("#submitentity").on('click', function () {
-                    data.submit();
-                });
-            }
+            $("#submitentity").on('click', function () {
+                data.submit();
+            });
+
         },
         done: function (e, data) {
             var filename = data.files[0]['name'];
@@ -97,7 +91,13 @@
             submitForm();
         }
 
-    });
+    }).bind('fileuploadadd', function (e, data) {
+            var fileCount = data.files.length;
+            if (fileCount > maxFiles) {
+                alert("The max number of files is "+maxFiles);
+                return false;
+            }
+        });
 })();
 
 function submitForm(){
