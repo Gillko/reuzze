@@ -22,8 +22,8 @@ For installing the project we use [Composer][1] to manage its dependencies.
 
 To update the project execute the following commands in the root of the webapplication:
 
-    php composer.phar install
     php composer.phar update
+    php app/console assets:install --symlink
     
 The terminal will ask for your configuration settings.
 
