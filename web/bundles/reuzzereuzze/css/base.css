@@ -197,6 +197,10 @@ form dl {
     padding-bottom: 50px;
 }
 
+.showdetailitem, .showimagedetailitem {
+    margin-left: 50px;
+}
+
 
 
 

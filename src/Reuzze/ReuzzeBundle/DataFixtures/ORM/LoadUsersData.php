@@ -16,7 +16,6 @@ use Reuzze\ReuzzeBundle\Entity\Users;
 use Reuzze\ReuzzeBundle\Entity\Persons;
 use Reuzze\ReuzzeBundle\Entity\Addresses;
 use Reuzze\ReuzzeBundle\Entity\Regions;
-use Reuzze\ReuzzeBundle\Entity\Languages;
 use Reuzze\ReuzzeBundle\Entity\Roles;
 
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -30,61 +29,34 @@ class LoadUsersData implements FixtureInterface, ContainerAwareInterface
      */
     public function load(ObjectManager $manager)
     {
-
-        /*$category = new Category();
-        $category->setName('Main Products');
-
-        $product = new Product();
-        $product->setName('Foo');
-        $product->setPrice(19.99);
-        // relate this product to the category
-        $product->setCategory($category);*/
-
-        /*$em = $this->getDoctrine()->getManager();
-        $em->persist($category);
-        $em->persist($product);
-        $em->flush();*/
-
-        //$language = new Languages();
-        //$language->setlanguageName('nederlands');
-
         $region = new Regions();
-        //$region->setregionId('1');
-        $region->setregionName('East Flanders');
+        $region->setregionName('Oost-Vlaanderen');
 
         $address = new Addresses();
-        //$adress->setadressId('1');
         $address->setaddressStreet('Patijntjestraat');
-        $address->setaddressCity('Ghent');
+        $address->setaddressCity('Gent');
         $address->setaddressLat('51.040009');
         $address->setaddressLon('3.708362');
         $address->setaddressStreetNr('33');
         $address->setregion($region);
 
         $person = new Persons();
-        //$person->setperson('1');
         $person->setpersonFirstname('Gilles');
         $person->setpersonSurname('Vanpeteghem');
-        $person->setpersonProfile('admin');
+        $person->setpersonProfile('Gilles Vanpeteghem...');
         $person->setaddress($address);
 
         $role = new Roles();
-        //$role->setroleId('1');
-        $role->setroleName('Student');
+        $role->setroleName('Member');
 
         $user = new Users();
-        $user->setuserId('1');
-        $user->setusername('admin');
-        $user->setpassword($this->encodePassword($user, 'user'));
-        //$user->setsalt('admin');
+        $user->setusername('Gilko');
+        $user->setpassword($this->encodePassword($user, 'gilko'));
         $user->setuserEmail('gilles.vanpeteghem@gmail.com');
         $user->setuserRating('1');
         $user->setperson($person);
         $user->setroles($role);
-        //$userAdmin->setlanguage($language);
 
-        //$manager = $this->getDoctrine()->getManager();
-        //$manager->persist($language);
         $manager->persist($user);
         $manager->persist($region);
         $manager->persist($address);
@@ -92,26 +64,6 @@ class LoadUsersData implements FixtureInterface, ContainerAwareInterface
         $manager->persist($role);
 
         $manager->flush();
-
-
-
-        //$userAdmin->setuserCreated('');
-        //$userAdmin->setuserModified('');
-        //$userAdmin->setuserDeleted('');
-        //$userAdmin->setuserLastlogin('');
-        //$userAdmin->setuserLocked('');
-
-
-
-
-        //$manager->persist($person);
-        //$manager->persist($userAdmin);
-        //$userAdmin->setlanguage('');
-        //$userAdmin->setrole('');
-        //$userAdmin->setuserPassword('test');
-
-
-        //$manager->flush();
     }
 
     private function encodePassword($user, $plainPassword){

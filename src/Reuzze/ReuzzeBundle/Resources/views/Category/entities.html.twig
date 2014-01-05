@@ -19,8 +19,7 @@
                 <thead>
                 <tr>
                     <!--<td>ID</td>-->
-                    <td>Picture</td>
-                    <td>Price</td>
+                    <td>Price(&#8364;)</td>
                     <td>Item</td>
                     <td>Start Time</td>
                     <!--<td>End Time</td>-->
@@ -31,11 +30,10 @@
                 {% for entity in entities %}
                     <tr>
                         <!--<td>{# entity.entityId #}</td>-->
-                        <td>Picture</td>
-                        <td>&#8364; {{ entity.entityInstantsellingprice}}</td>
+                        <td>{{ entity.entityInstantsellingprice}}</td>
                         <td>
                             <ul>
-                                <li><a href="{{ path('reuzze_reuzze_entityshowpage', {'entity_id': entity.entityId}) }}"></a>{{ entity.entityTitle }}</li>
+                                <li><h4><a href="{{ path('reuzze_reuzze_entityshowpage', {'entity_id': entity.entityId}) }}">{{ entity.entityTitle }}</a></h4></li>
                                 <li>{{ entity.entityDescription }}</li>
                             </ul>
                         </td>
