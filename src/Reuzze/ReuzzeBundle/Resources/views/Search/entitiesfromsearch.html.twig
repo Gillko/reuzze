@@ -9,7 +9,7 @@
             <li>{{ name }}</li>
             <ul>
                 {% for key, string in category %}
-                    <li><a href="{{ key }}">{{ string }}</a></li>
+                    <li><a href="{{ path('reuzze_reuzze_categoryentitiespage', {'category_id': key }) }}">{{ string }}</a></li>
                 {% endfor %}
             </ul>
         {% endfor  %}

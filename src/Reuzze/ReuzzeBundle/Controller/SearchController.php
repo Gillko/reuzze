@@ -65,7 +65,9 @@ class SearchController extends Controller
                 $regionid = $data->getRegion()->getRegionName()->getRegionId();
                 $categoryid = $data->getCategory()->getCategoryName();
 
-                return $this->redirect('entitiesfromsearch/' . $searchterm . '/' . $categoryid . '/' . $categoryid);
+
+                return $this->redirect($this->generateUrl('reuzze_reuzze_entitiesfromsearchpage', array('entity_title' => $searchterm,
+                    'category_id' => $categoryid, 'region_id' => $regionid)));
             }
         }
 
@@ -113,7 +115,7 @@ class SearchController extends Controller
             ->andWhere('e.entityTitle LIKE :ptitle')
             ->setParameter('pcategory', $category)
             ->setParameter('pregion', $region)
-            ->setParameter('ptitle', '%' . $entity_title . '%' )
+            ->setParameter('ptitle', '%' . $entity_title . '%')
             ->orderBy('e.entityId', 'DESC')
             ->getQuery();
 
