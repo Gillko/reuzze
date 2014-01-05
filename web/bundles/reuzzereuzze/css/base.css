@@ -14,8 +14,40 @@ footer {
     border: none;
 }
 
+.searchoptions:hover{
+    color:#e3e316;
+    font-weight: bold;
+}
 .page-header {
     border: none;
+    margin:0;
+}
+
+.ddncategories a:hover{
+    color:#e3e316;
+    font-weight: bold;
+}
+
+.ddncategories a:active{
+    color:#e3e316;
+}
+
+.ddncategories .dropdown-menu ul{
+    list-style-type: none;
+}
+
+.ddncategories ul li{
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.ddncategories ul ul li{
+    margin-left:-5px;
+    font-weight: normal;
+}
+
+.deletefromfavorites, .addtofavorites{
+    margin-bottom: 10px;
 }
 
 #logo {
@@ -31,6 +63,23 @@ footer {
 .navbar-default {
     background-color: #FFF;
     border: none;
+}
+
+.categoriessidebar ul{
+    list-style-type: none;
+}
+
+.categoriessidebar ul li{
+    font-weight: bold;
+}
+
+.categoriessidebar ul ul li{
+    font-weight: normal;
+}
+.categoriessidebar ul ul li a:hover{
+    color:#e3e316;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 a:hover,

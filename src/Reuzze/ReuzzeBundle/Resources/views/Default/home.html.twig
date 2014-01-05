@@ -32,6 +32,7 @@
             </tr>
             </thead>
             <tbody>
+
             {% for entity in entities %}
                 <tr>
                     <!--<td>{# entity.entityId #}</td>-->
@@ -45,7 +46,7 @@
                     <td>&#8364; {{ entity.entityInstantsellingprice}}</td>
                     <td>
                         <ul>
-                            <li><a href="{{ path('reuzze_reuzze_entityshowpage', {'entity_id': entity.entityId}) }}"></a>{{ entity.entityTitle }}</li>
+                            <li><a href="{{ path('reuzze_reuzze_entityshowpage', {'entity_id': entity.entityId}) }}">{{ entity.entityTitle }}</a></li>
                             <li>{{ entity.entityDescription }}</li>
                         </ul>
                     </td>
