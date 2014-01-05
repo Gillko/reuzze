@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://stackoverflow.com/questions/ask -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Input field not posted in symfony form - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta name="og:type" content="website">
+    <meta name="og:image" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=fde65a5a78c6">
+    <meta name="og:title" content="Ask a Question">
+    <meta name="og:description" content="Q&amp;A for professional and enthusiast programmers">
+    <meta name="og:url" content="http://stackoverflow.com/questions/ask">
+
+    
+    
+    <script async="" src="./Input field not posted in symfony form - Stack Overflow_files/beacon.js"></script><script type="text/javascript" async="" src="./Input field not posted in symfony form - Stack Overflow_files/ga.js"></script><script type="text/javascript" async="" src="./Input field not posted in symfony form - Stack Overflow_files/quant.js"></script><script type="text/javascript" src="./Input field not posted in symfony form - Stack Overflow_files/jquery.min.js"></script>
+    <script src="./Input field not posted in symfony form - Stack Overflow_files/stub.en.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="./Input field not posted in symfony form - Stack Overflow_files/all.css">
+    
+    <script type="text/javascript">
+        StackExchange.ready(
+            function () {
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 1, 'question');
+                });
+
+                StackExchange.question.initTitleSearch($('#title'), $("#question-suggestions"), 'Stack Overflow');
+
+                    
+                    var $answerCheckbox = $('#answer-from-ask');
+                    var editorInitialized = false;
+
+                    function showAnswerSection(quick, callback) {
+                        if (!editorInitialized) {
+                            $("#question-answer-section").css("opacity", 0).removeClass("dno");
+                            StackExchange.editor.finallyInit();
+                            editorInitialized = true;
+
+                            StackExchange.using("postValidation", function () {
+                                StackExchange.postValidation.initOnBlur($("#question-answer-section"), 2, false);
+                            });
+                        }
+                        
+                        $('#question-answer-section, #answer-from-ask-form-item').fadeTo(quick ? 0 : 400, 1, callback);
+                    }
+
+                    $answerCheckbox.change(function () {
+                        if ($(this).is(':checked')) {
+                            $('#question-only-section, #answer-from-ask-form-item').fadeOut(function () {
+                                showAnswerSection(false, function () {
+                                    $('#wmd-input-42').focus();
+                                });
+                            });
+                        }
+                        else {
+                            $('#question-answer-section, #answer-from-ask-form-item').fadeOut(function () {
+                                $('#question-only-section, #answer-from-ask-form-item').fadeIn();
+                            });
+                        }
+                    });
+
+                    if ($answerCheckbox.is(':checked') || 0 > 0) {
+                        $answerCheckbox.attr('checked', true);
+                        $('#question-only-section').hide();
+                        StackExchange.using("editor", function () {
+                            setTimeout(function () { showAnswerSection(true) }, 2);
+                        });
+                    }
+                    
+            }
+        );
+    </script>
+
+        <script type="text/javascript">
+            StackExchange.gps.track("question_ask.visit", { 'inbox_subscription': 1 });
+            StackExchange.using("gps", function () {
+                var pending = [];
+                var send = StackExchange.helpers.DelayedReaction(function () {
+                    StackExchange.gps.sendPending();
+                }, 3000);
+                var alreadySent = { "title_focus": 1 };
+                $("#title,#wmd-input,#tagnames").on("focus blur", function (evt) {
+                    var what = { title: "title", "wmd-input": "body", "tagnames": "tags" }[this.id] + "_" + evt.type;
+                    if (alreadySent[what])
+                        return;
+                    StackExchange.gps.track("question.action", { action_type: what }, true);
+                    alreadySent[what] = 1;
+                    send.trigger();
+                });
+            });
+        </script>
+
+
+    <script type="text/javascript">
+        StackExchange.ready(function () {
+            StackExchange.realtime.init('wss://qa.sockets.stackexchange.com,ws://qa.sockets.stackexchange.com');
+            StackExchange.realtime.subscribeToInboxNotifications();
+                    StackExchange.realtime.subscribeToReputationNotifications('1');
+                            StackExchange.realtime.subscribeToTopBarNotifications('1');
+        });
+    </script>
+    <script type="text/javascript">
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1388850306,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"2de2fa2936a896e43a0a85ea1c004577","isRegistered":true,"userType":3,"userId":1775531,"accountId":1978267,"gravatar":"<div class=\"gravatar-wrapper-32\"><img src=\"http://i.stack.imgur.com/jEecD.gif?s=32&g=1\" alt=\"\"></div>","profileUrl":"http://stackoverflow.com/users/1775531/nielsv","notificationsUnviewedCount":0,"inboxUnviewedCount":0,"ab":{"welcome_email":{"v":"b","g":1}}}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"e0bbd4760e83","js/moderator.en.js":"f24049d774be","js/full-anon.en.js":"2902a23ad46f","js/full.en.js":"c63381338a59","js/wmd.en.js":"849f408083f3","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"d1d834ef85d2","js/help.en.js":"d3cc74d8a93a","js/tageditor.en.js":"6d51a5f8d7f3","js/tageditornew.en.js":"111b781cf314","js/inline-tag-editing.en.js":"f951bd09dc69","js/revisions.en.js":"33fd38144303","js/review.en.js":"038b38e68e1a","js/tagsuggestions.en.js":"e4e7b952fcc7","js/post-validation.en.js":"c275fe37d674","js/explore-qlist.en.js":"73825bd006fc","js/events.en.js":"6f8a95d5c039"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+        
+    </script>
+    
+<script async="" type="text/javascript" src="./Input field not posted in symfony form - Stack Overflow_files/full.en.js"></script><script async="" type="text/javascript" src="./Input field not posted in symfony form - Stack Overflow_files/tageditornew.en.js"></script><script async="" type="text/javascript" src="./Input field not posted in symfony form - Stack Overflow_files/tagsuggestions.en.js"></script><script async="" type="text/javascript" src="./Input field not posted in symfony form - Stack Overflow_files/wmd.en.js"></script><link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/js/page_context.js"></script><script async="" type="text/javascript" src="./Input field not posted in symfony form - Stack Overflow_files/post-validation.en.js"></script></head>
+<body class="ask-page new-topbar" screen_capture_injected="true">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+<div class="topbar">
+    <div class="topbar-wrapper">
+        
+        <div class="js-topbar-dialog-corral">
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">Explore our sites</a></h3>
+    </div>
+    <div class="modal-content">
+        <ul class="current-site">
+                <li>
+                        <a href="http://stackoverflow.com/" class="current-site-link site-link js-site-link js-gps-track" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+    <div class="related-links js-related-links">
+            <a href="http://chat.stackoverflow.com/" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="http://blog.stackexchange.com/" data-gps-track="site_switcher.click({ item_type:7 })">blog</a>
+                    <a href="http://stackoverflow.com/users/logout" data-gps-track="site_switcher.click({ item_type:8 })">log out</a>
+    </div>
+
+                </li>
+                <li class="related-site">
+                        <a href="http://meta.stackoverflow.com/" class="site-link js-site-link js-gps-track" data-gps-track="site.switch({ target_site:4, item_type:3 });site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    
+                </li>
+                            <li class="related-site">
+                    <a class="site-link js-site-link" href="http://careers.stackoverflow.com/" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Careers 2.0
+                    </a>
+                </li>
+        </ul>
+        
+
+
+        
+            <div class="child-content"></div>
+
+    </div>
+</div>        </div>
+
+        <div class="network-items">
+            
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 114 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+            
+                <a href="http://stackoverflow.com/questions/ask#" class="topbar-icon icon-inbox js-inbox-button" title="Recent inbox messages">
+                    <span class="hidden-text">Inbox</span>
+                    <span class="unread-count" style="display:none"></span>
+                </a>
+                <a href="http://stackoverflow.com/questions/ask#" class="topbar-icon icon-achievements js-achievements-button" data-unread-class="" title="Recent achievements: reputation, badges, and privileges earned">
+                    <span class="hidden-text">Reputation and Badges</span>
+                    <span class="unread-count" style="display:none">
+                        
+                    </span>
+                </a>
+        </div>
+
+        <div class="topbar-links">
+            
+                <a href="http://stackoverflow.com/users/1775531/nielsv" class="profile-me">
+			        <div class="gravatar-wrapper-24" title="nielsv"><img src="./Input field not posted in symfony form - Stack Overflow_files/jEecD.gif" alt="" class="avatar-me js-avatar-me"></div>
+                    <div class="links-container topbar-flair">
+
+                        <span class="reputation" title="your reputation: 130">
+                            130
+                        </span>
+<span title="4 silver badges"><span class="badge2"></span><span class="badgecount">4</span></span><span title="26 bronze badges"><span class="badge3"></span><span class="badgecount">26</span></span>                    </div>
+			    </a>
+                <div class="links-container">
+                    <span class="topbar-menu-links">
+                        
+
+                        
+                        
+
+                            <a href="http://stackoverflow.com/questions/ask#" class="icon-help js-help-button" title="Help Center and other resources">
+                                help
+                                <span class="triangle"></span>
+                            </a>
+                            <div class="topbar-dialog help-dialog js-help-dialog dno">
+                                <div class="modal-content">
+                                    <ul>
+                                        <li>
+                                            <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                                                Tour
+                                                <span class="item-summary">
+                                                    Start here for a quick overview of the site
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                                                Help Center
+                                                <span class="item-summary">
+                                                    Detailed answers to any questions you might have
+                                                </span>
+                                            </a>
+                                        </li>
+                                            <li>
+                                                <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                                    Meta
+                                                    <span class="item-summary">
+                                                        Discuss the workings and policies of this site
+                                                    </span>
+                                                </a>
+                                            </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        
+                    </span>
+                </div>
+
+			<div class="search-container">
+                <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240">
+                </form>
+			</div>
+            	
+        </div>      
+    </div> 
+</div>
+<script>
+    StackExchange.ready(function () {
+        //topbar.init();
+        StackExchange.topbar.init();
+    });
+</script>    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs ">
+                    <ul>
+                            <li><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                            <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                            <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                            <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                            <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li class="youarehere">
+                            <a id="nav-askquestion" style="cursor:default">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content">
+            
+
+
+<div id="mainbar" class="ask-mainbar">
+
+    <form id="post-form" class="post-form" action="http://stackoverflow.com/questions/ask/submit" method="post">
+        <div id="question-form">
+            <div style="position: relative;"> 
+                <div class="form-item ask-title">
+                    <table class="ask-title-table">
+                        <tbody><tr>
+                            <td class="ask-title-cell-key">
+                                <label for="title">Title</label>
+                            </td>
+                            <td class="ask-title-cell-value">
+                                <input id="title" name="title" type="text" maxlength="300" tabindex="100" class="ask-title-field" value="Twodimensional string array in c#" data-min-length="15" data-max-length="150" autocomplete="off" style="opacity: 1;">                        
+                                <span class="edit-field-overlay">What's your programming question? Be specific.</span>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                    <div id="question-suggestions"><label>Questions that may already have your answer</label><div class="title-search-container">
+<div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/20484292/1775531" title="0 votes">
+        <div class="answer-votes default">0</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/20484292/codeigniter-form-only-posting-hidden-fields" class="question-hyperlink" title="I have a CodeIgniter form that is only submitting hidden form fields, not text inputs and textareas.
+
+The form:
+
+&lt;form action=&quot;/test.php&quot; method=&quot;post&quot; id=&quot;add_greeting_form&quot; ..." dir="ltr" target="_blank">CodeIgniter form only posting hidden fields</a>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/10456621/1775531" title="0 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">0</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/10456621/confusing-javascript-issue-validating-form-input-field-value-works-but-saving" class="question-hyperlink" title="Apologies for the unweildy title, this is a very difficult question to put into words. This code will explain it much better.
+
+alert(formob.Nam.value); //i work correctly
+alert(formob.Num.value); ..." dir="ltr" target="_blank">Confusing Javascript issue validating form. Input field value works, but saving object of input field doesn't</a>
+            <span title="1 answer">1</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/9644342/1775531" title="1 vote">
+        <div class="answer-votes default">1</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/9644342/how-to-get-value-of-hidden-input-field-not-in-same-the-order-with-regular-expres" class="question-hyperlink" title="I want to get value of hidden input field
+
+&lt;FORM onsubmit=&quot;javascript:return add();&quot; method=post action=addMess.php&gt;
+....
+&lt;INPUT name=sysess2 value=1234 type=hidden&gt;
+....
+&lt;/FORM&gt;
+
+
+..." dir="ltr" target="_blank">How to get value of hidden input field not in same the order with regular expression</a>
+            <span title="1 answer">1</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/14431821/1775531" title="1 vote, with an accepted answer">
+        <div class="answer-votes answered-accepted default">1</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/14431821/form-field-not-retaining-input-data" class="question-hyperlink" title="I can&#39;t seem to figure out why when I submit the form, and it returns with the error message, that it doesn&#39;t retain what I&#39;ve entered into the fields.  Here&#39;s an example of my input field:
+
+&lt;input ..." dir="ltr" target="_blank">Form field not retaining input data</a>
+            <span title="2 answers">2</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/18950229/1775531" title="0 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">0</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/18950229/php-simple-upload-script-missing-input-field-why" class="question-hyperlink" title="I&#39;m working through some examples in a book (Learning PHP, MySQL, JavaScript, and CSS 2nd Ed) and have the following code copied verbatim from the book which pictures the result showing an input ..." dir="ltr" target="_blank">PHP simple upload script missing input field. Why?</a>
+            <span title="1 answer">1</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/6333694/1775531" title="0 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">0</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/6333694/codeigniter-form-prepopulation" class="question-hyperlink" title="Is there a method to prepopulate a certain field in a form using data from the previous page using codeigniter.
+
+I have a page with input fields that are filled out, if the user presses a &quot;add&quot; button ..." dir="ltr" target="_blank">codeigniter form prepopulation</a>
+            <span title="3 answers">3</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/14222280/1775531" title="0 votes">
+        <div class="answer-votes default">0</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/14222280/hiding-input-field-with-css-in-an-embeded-form" class="question-hyperlink" title="Hello i am using machforms, and unfortunately it doenst have a setting to hide or disable fields. im trying to do it with css, since you need to embed the form using javacode or php into yourpage like ..." dir="ltr" target="_blank">Hiding input field with css in an embeded form</a>
+            <span title="2 answers">2</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/13387578/1775531" title="0 votes">
+        <div class="answer-votes default">0</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/13387578/how-to-prefill-a-form-field-using-post-method-data" class="question-hyperlink" title="Im trying to figure out how to prefill a form field with a value from the previous page.
+
+The form on the first page uses post method.
+
+Need the right script that will take a value from the previous ..." dir="ltr" target="_blank">How to prefill a form field using POST method data?</a>
+            <span title="1 answer">1</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/20682918/1775531" title="-1 votes">
+        <div class="answer-votes default">-1</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/20682918/entering-input-field-unable-to-access-or-find" class="question-hyperlink" title="Trying to input to the &quot;username&quot; and &quot;password&quot; fields on a page which contains the following:
+
+&lt;form style=&quot;display:inline;&quot; target=&quot;_top&quot; onsubmit=&quot;setlogin(); return false;&quot; action=&quot;/portal&quot; ..." dir="ltr" target="_blank">Entering Input Field - unable to access or find</a>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/15142930/1775531" title="0 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">0</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/15142930/php-to-get-input-fields-sent-by-a-form-without-knowing-which-field-was-submitte" class="question-hyperlink" title="I have a form with around 15 input fields with a default value each coming from a db table. A Javascript checks whether a field has been modified or not upon submission.
+
+Then my question comes:
+
+How ..." dir="ltr" target="_blank">PHP to get input fields sent by a form (without knowing which field was submitted)</a>
+            <span title="1 answer">1</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/16889177/1775531" title="0 votes">
+        <div class="answer-votes default">0</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/16889177/passing-angularjs-variable-through-form-input-field-does-not-work" class="question-hyperlink" title="I have an iFrame that has content on a different domain, that I also control.  I like to pass confidential data from the parent to the iFrame.  Therefore, I do not want to pass it via query string or ..." dir="ltr" target="_blank">Passing AngularJS variable through form input field does not work</a>
+            <span title="1 answer">1</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/4046996/1775531" title="2 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">2</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/4046996/dynamic-form-fields-in-symfony-1-4" class="question-hyperlink" title="I&#39;m working on an e-commerce project and I got stuck at the cart update. Here I have to present a form using the contents of the current cart, with input fields containing the current quantities.
+
+I ..." dir="ltr" target="_blank">Dynamic form fields in Symfony 1.4</a>
+            <span title="1 answer">1</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/2350764/1775531" title="1 vote, with an accepted answer">
+        <div class="answer-votes answered-accepted default">1</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/2350764/how-to-dynamically-populate-a-choices-widget-in-symfony" class="question-hyperlink" title="Suppose there is an image_url column in database.
+
+I want the user to choose from several recommended images,which is something like this:
+
+&lt;input type=&quot;radio&quot; value=&quot;domain.com/path_to_img1&quot; ..." dir="ltr" target="_blank">How to dynamically populate a choices widget in symfony?</a>
+            <span title="2 answers">2</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/17809056/1775531" title="2 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">2</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/17809056/how-to-add-additional-fields-to-form-before-submit" class="question-hyperlink" title="Is there a way to use javascript and JQuery to add some additional fields to be sent from a HTTP form using POST?
+
+I mean:
+
+&lt;form action=&quot;somewhere&quot; method=&quot;POST&quot; id=&quot;form&quot;&gt;
+    &lt;input ..." dir="ltr" target="_blank">How to add additional fields to form before submit?</a>
+            <span title="4 answers">4</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/11073362/1775531" title="2 votes">
+        <div class="answer-votes default">2</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/11073362/post-mulitple-inputs-in-form-with-jquery" class="question-hyperlink" title="I generate some inputs that looks something like this in HTML:
+
+&lt;input id=&#39;estemated_days&#39; type=&#39;text&#39; data-id=&#39;717&#39; value=&#39;6&#39;&gt;
+
+&lt;select id=&#39;elements_grade&#39; data-id=&#39;717&#39;&gt;
+ &lt;option ..." dir="ltr" target="_blank">POST mulitple inputs in form with jQuery</a>
+            <span title="1 answer">1</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/16304685/1775531" title="0 votes">
+        <div class="answer-votes default">0</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/16304685/form-post-not-working-due-to-hiddenfor-in-mvc3" class="question-hyperlink" title="for some reason, my form post does not work when i have the hidden field in mvc3 razor. It works fine if i remove the hidden field but i need that field.
+
+Below are my ProductsController post method ..." dir="ltr" target="_blank">form post not working due to @HiddenFor in mvc3</a>
+            <span title="1 answer">1</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/16616910/1775531" title="0 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">0</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/16616910/dynamically-add-form-input-fields-with-jquery-html" class="question-hyperlink" title="I&#39;m trying to dynamically add fields to my page and form.  Essentially what I have is a model container with a row of input fields. However any input field generated from the model container and ..." dir="ltr" target="_blank">Dynamically add form input fields with jquery .html()</a>
+            <span title="1 answer">1</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/18121201/1775531" title="2 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">2</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/18121201/php-how-to-split-an-array-in-variables" class="question-hyperlink" title="Hi everybody i need help! I&#39;ve starting to learn php some week ago.
+i have a form that POST some text field for a contact, i need to split the array in some variables to put in a email. this is my ..." dir="ltr" target="_blank">PHP how to split an array in variables</a>
+            <span title="3 answers">3</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/9449313/1775531" title="0 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">0</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/9449313/post-non-input-fields-in-a-form" class="question-hyperlink" title="This seems like a simple thing, and maybe I&#39;m just not thinking straight today, but right now I don&#39;t see it: How do I post data from a form (in a PHP application) that is not an input field?
+
+The ..." dir="ltr" target="_blank">Post non-input fields in a form?</a>
+            <span title="2 answers">2</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/20053044/1775531" title="0 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">0</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/20053044/symfony-hidden-form-field" class="question-hyperlink" title="i have problem with hiding my form fields. For example:
+
+        -&gt;add(&#39;new_password&#39;, &#39;repeated&#39;, array(
+
+            &#39;first_options&#39; =&gt; array(
+                &#39;label&#39; =&gt; &#39;Nowe hasło&#39;,
+      ..." dir="ltr" target="_blank">Symfony, Hidden Form Field</a>
+            <span title="2 answers">2</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/8311447/1775531" title="-2 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">-2</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/8311447/symfony-forms-post" class="question-hyperlink" title="I read about Symfony forms and i have simple question : 
+ i Make 2 templates  &quot;test&quot; and test1 . I  want to post forms values of 
+test to test1 and after to show them with echo.
+In test i put:
+
+form ..." dir="ltr" target="_blank">Symfony forms post</a>
+            <span title="1 answer">1</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/16940096/1775531" title="4 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">4</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/16940096/fine-uploader-how-to-use-in-combination-with-other-input-fields" class="question-hyperlink" title="I would like to use FineUploader within a typical form:
+
+&lt;form enctype=&quot;multipart/form-data&quot; method=&quot;post&quot;&quot;&gt;
+    &lt;input name=&quot;fileupload&quot; type=&quot;file&quot; &quot;&gt;
+    &lt;input type=&quot;text&quot; ..." dir="ltr" target="_blank">fine-uploader - how to use in combination with other input fields?</a>
+            <span title="1 answer">1</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/12543894/1775531" title="2 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">2</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/12543894/using-symfony-2-forms-to-validate-api-inputs" class="question-hyperlink" title="I&#39;m building an API using Symfony2, Doctrine and the FOSRestBundle. I would like to use the forms component to validate API requests that create or modify records and am having a few problems. I have ..." dir="ltr" target="_blank">Using Symfony 2 Forms to validate API inputs</a>
+            <span title="3 answers">3</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/18862146/1775531" title="2 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">2</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/18862146/how-can-i-disable-input-field-spaces-with-mootools" class="question-hyperlink" title="I can&#39;t find this anywhere, we need to disable the space bar (spaces) in a input field of our form using MooTools 1.2
+
+I have a solution for jQuery which doesn&#39;t work, however we have our site based ..." dir="ltr" target="_blank">How can I disable input field spaces with MooTools?</a>
+            <span title="1 answer">1</span>
+    </div>
+</div><div class="answer-summary">
+
+
+    <a href="http://stackoverflow.com/q/15238786/1775531" title="0 votes, with an accepted answer">
+        <div class="answer-votes answered-accepted default">0</div>
+    </a>
+    <div class="answer-link " style="width:90%">
+        <a href="http://stackoverflow.com/questions/15238786/fill-text-input-field-with-posted-form-data-from-previous-page" class="question-hyperlink" title="I have a form action that posts to a second page with a form on it with more info.
+
+How can I pull (I guess &quot;get&quot;) the info from the previous page&#39;s form fields into new fields on this second page?
+" dir="ltr" target="_blank">Fill text input field with posted form data from previous page</a>
+            <span title="2 answers">2</span>
+    </div>
+</div></div>
+</div>
+                </div>
+            </div>
+
+
+
+            
+
+
+    
+
+<script type="text/javascript">
+    StackExchange.ready(function() {
+        StackExchange.using("tagEditor", function () { StackExchange.tagEditor.ready.done(initFadingHelpText); });
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'ask',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: false,
+            discardSelector: ".discard-question"
+            
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li class="wmd-button" id="wmd-bold-button" title="Strong &lt;strong&gt; Ctrl+B" style="left: 0px;"><span style="background-position: 0px 0px;"></span></li><li class="wmd-button" id="wmd-italic-button" title="Emphasis &lt;em&gt; Ctrl+I" style="left: 25px;"><span style="background-position: -20px 0px;"></span></li><li class="wmd-spacer wmd-spacer1" id="wmd-spacer1"></li><li class="wmd-button" id="wmd-link-button" title="Hyperlink &lt;a&gt; Ctrl+L" style="left: 75px;"><span style="background-position: -40px 0px;"></span></li><li class="wmd-button" id="wmd-quote-button" title="Blockquote &lt;blockquote&gt; Ctrl+Q" style="left: 100px;"><span style="background-position: -60px 0px;"></span></li><li class="wmd-button" id="wmd-code-button" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K" style="left: 125px;"><span style="background-position: -80px 0px;"></span></li><li class="wmd-button" id="wmd-image-button" title="Image &lt;img&gt; Ctrl+G" style="left: 150px;"><span style="background-position: -100px 0px;"></span></li><li class="wmd-spacer wmd-spacer2" id="wmd-spacer2"></li><li class="wmd-button" id="wmd-olist-button" title="Numbered List &lt;ol&gt; Ctrl+O" style="left: 200px;"><span style="background-position: -120px 0px;"></span></li><li class="wmd-button" id="wmd-ulist-button" title="Bulleted List &lt;ul&gt; Ctrl+U" style="left: 225px;"><span style="background-position: -140px 0px;"></span></li><li class="wmd-button" id="wmd-heading-button" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H" style="left: 250px;"><span style="background-position: -160px 0px;"></span></li><li class="wmd-button" id="wmd-hr-button" title="Horizontal Rule &lt;hr&gt; Ctrl+R" style="left: 275px;"><span style="background-position: -180px 0px;"></span></li><li class="wmd-spacer wmd-spacer3" id="wmd-spacer3"></li><li class="wmd-button" id="wmd-undo-button" title="Undo - Ctrl+Z" style="left: 325px;"><span style="background-position: -200px 0px;"></span></li><li class="wmd-button" id="wmd-redo-button" title="Redo - Ctrl+Shift+Z" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li><li class="wmd-button wmd-help-button" id="wmd-help-button" title="Markdown Editing Help" style="right: 0px;"><span style="background-position: -240px 0px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input processed" name="post-text" cols="92" rows="15" tabindex="101" data-min-length="">I would like to create an array like this
+
+    {
+      "A string" =&gt; {
+                       "First option"
+                       "Second option"
+                     },
+      "B string" =&gt; {
+                        "First option"
+                        "Second option"
+                        "Third option"
+                     }
+    }
+
+What's the easiest way to do this?</textarea>
+        <div class="grippie" style="margin-right: 0px;"></div></div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height: 24px; display: none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"><p>I have form like this:</p>
+
+<pre><code>class EntityType extends AbstractType
+{
+    protected $em;
+
+    public function __construct(EntityManager $em)
+    {
+        $this-&gt;em = $em;
+    }
+
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            -&gt;add('category'     , new CategoryType($this-&gt;em))
+            -&gt;add('entityTitle'   , 'text', array(
+            'label' =&gt; 'Title',
+            'attr' =&gt; array('placeholder' =&gt; 'Title')
+            ))
+            -&gt;add('entityDescription'  , 'text', array(
+                'label' =&gt; 'Description',
+                'attr' =&gt; array('placeholder' =&gt; 'Description')
+            ))
+            -&gt;add('entityStarttime', 'text', array(
+                'label'         =&gt; 'Start Time',
+                'required'      =&gt; false
+            ))
+            -&gt;add('entityEndtime', 'text', array(
+                'label'         =&gt; 'End Time',
+                'required'      =&gt; false
+            ))
+            -&gt;add('entityInstantsellingprice', 'money', array(
+                'label'         =&gt; 'Instant Selling Price',
+                'attr' =&gt; array('placeholder' =&gt; 'Instant Selling Price')
+            ))
+            -&gt;add('entityCondition', 'choice', array(
+                'choices' =&gt; array('n' =&gt; 'New', 'u' =&gt; 'Used'),
+                'label'         =&gt; 'Condition',
+                'attr' =&gt; array('placeholder' =&gt; 'Condition')
+            ))
+        ;
+    }
+
+    public function getName()
+    {
+        return 'entity';
+    }
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver-&gt;setDefaults(array(
+            'data_class' =&gt; 'Reuzze\ReuzzeBundle\Entity\Entities',
+            'validation_groups' =&gt; array('entity'),
+        ));
+    }
+
+}
+</code></pre>
+
+<p>My Entities Class:</p></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="2de2fa2936a896e43a0a85ea1c004577">
+        <input id="author" name="author" type="text">
+    <input type="hidden" name="i1l" value="9i+fI/WLzZCNzQ5GAPbDrJUDkesInHHKm+PM2btyvuU="></div>
+</div>
+        
+            <div style="position: relative;"> 
+
+                <script type="text/javascript">
+    StackExchange.using("tagEditor", function () {
+        initTagRenderer("".split(" "), "".split(" "));
+        StackExchange.tagEditor($("#tagnames"));
+    });
+</script>	
+
+<div style="position: relative;"> 
+<div class="form-item">
+    <label>Tags</label>
+    <input id="tagnames" name="tagnames" type="text" size="60" value="c# multidimensional-array arrays" tabindex="103" style="display: none;"><div class="tag-editor" style="width: 666px; height: 27px; opacity: 1;"><span><span class="post-tag">c#<span class="delete-tag" title="remove this tag"></span></span><span class="post-tag">multidimensional-array<span class="delete-tag" title="remove this tag"></span></span><span class="post-tag">arrays<span class="delete-tag" title="remove this tag"></span></span></span><input type="text" tabindex="103" style="width: 393px;"><span></span></div>
+    <span class="edit-field-overlay">
+at least one tag such as (html wpf ios), max 5 tags    </span>
+</div>
+</div>
+
+                    <div id="tag-suggestions"><span>suggested tags:</span><a class="post-tag" rel="tag" href="http://stackoverflow.com/questions/tagged/symfony2" title="show questions tagged &#39;symfony2&#39;">symfony2</a><a class="post-tag" rel="tag" href="http://stackoverflow.com/questions/tagged/php" title="show questions tagged &#39;php&#39;">php</a></div>
+                    <script>
+                        StackExchange.using("tagSuggestions", function () {
+                            StackExchange.tagSuggestions.init();
+                        });
+                    </script>
+
+
+            </div>
+        
+            <div id="question-only-section">
+    <div class="form-item">
+        <div>
+            <input id="inbox-opt-int-b9f3006f7a164c26b26d2022c1814485" type="checkbox">
+            <label for="inbox-opt-int-b9f3006f7a164c26b26d2022c1814485" style="display: inline">Send me new responses to my posts via email</label>
+            <a id="inbox-opt-int-b9f3006f7a164c26b26d2022c1814485-settings" href="http://stackoverflow.com/questions/ask#">(settings)</a>
+        </div>
+        <div id="inbox-opt-int-b9f3006f7a164c26b26d2022c1814485-container" style="display: none;">
+            Send me new responses to my posts via email
+            <select id="inbox-opt-int-b9f3006f7a164c26b26d2022c1814485-freq" disabled="disabled">
+                <option value="3">every 3 hours</option>
+                <option value="24">daily</option>
+                <option value="168">weekly</option>
+            </select>
+            
+            <div>
+                Send emails to
+                <input id="inbox-opt-int-b9f3006f7a164c26b26d2022c1814485-address" style="width: 300px;" value="vroman.niels@hotmail.com" disabled="disabled">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        StackExchange.ready(function() {
+            var settingsShown = false;
+            var settingsContainer = $('#inbox-opt-int-b9f3006f7a164c26b26d2022c1814485-container');
+            var settingsAutoExpand = false;
+            var postForm = $('#post-form');
+            var updateHiddenField = function(name, value) {
+                var field = postForm.find('[name=' + name + ']');
+                if (value === null) {
+                    field.remove();
+                } else {
+                    if (field.length === 0) {
+                        field = $('<input>').attr({ type: 'hidden', name: name }).appendTo(postForm);
+                    }
+                    field.val(value);
+                }
+            };
+            
+            var getFormData = function() {
+                return {
+                    inboxEmailOptIn: $('#inbox-opt-int-b9f3006f7a164c26b26d2022c1814485').is(':checked'),
+                    inboxEmailAddress: $('#inbox-opt-int-b9f3006f7a164c26b26d2022c1814485-address').val(),
+                    inboxEmailFreq: $('#inbox-opt-int-b9f3006f7a164c26b26d2022c1814485-freq').val(),
+                };
+            };
+
+            var clearForm = function() {
+                for (var field in getFormData()) {
+                    updateHiddenField(field, null);
+                }
+            };
+
+            var updateForm = function() {
+                var data = getFormData();
+                for (var field in getFormData()) {
+                    updateHiddenField(field, data[field]);
+                }
+            };
+
+            var toggleSettings = function(show) {
+                if (show) {
+                    settingsContainer.slideDown('fast');
+                    if (!settingsShown) {
+                        StackExchange.using("gps", function() {
+                            StackExchange.gps.track('inbox_settings.show', { location: '2' });
+                        });
+                        settingsShown = true;
+                    }
+                } else {
+                    settingsContainer.slideUp('fast');
+                }
+            };
+            $('#inbox-opt-int-b9f3006f7a164c26b26d2022c1814485').change(function() {
+                var checked = $(this).is(':checked');
+                if (checked) {
+                    if (settingsAutoExpand) {
+                        toggleSettings(true);
+                    }
+                    updateForm();
+                } else {
+                    if (settingsAutoExpand) {
+                        toggleSettings(false);
+                    }
+                    clearForm();
+                }
+                $('#inbox-opt-int-b9f3006f7a164c26b26d2022c1814485-address, #inbox-opt-int-b9f3006f7a164c26b26d2022c1814485-freq').attr('disabled', !checked);
+            }).change();
+            $('#inbox-opt-int-b9f3006f7a164c26b26d2022c1814485-settings').click(function(evt) { 
+                toggleSettings(!settingsContainer.is(':visible'));
+                evt.preventDefault();
+                return false;
+            });
+            $('#inbox-opt-int-b9f3006f7a164c26b26d2022c1814485-address').keyup(updateForm);
+            $('#inbox-opt-int-b9f3006f7a164c26b26d2022c1814485-freq').val('24').change(updateForm);
+        });
+    </script>
+
+                <div class="form-submit cbt">
+                    <input id="submit-button" type="submit" value="Post Your Question" tabindex="120">
+                    <a href="http://stackoverflow.com/questions/ask#" class="discard-question ">discard</a>
+                    
+                </div>
+            </div>
+        </div>
+
+            <div id="answer-from-ask-form-item" class="form-item">
+                <input type="checkbox" id="answer-from-ask" name="answer-from-ask"> <label for="answer-from-ask" style="display: inline;">Answer your own question</label> – <a href="http://blog.stackoverflow.com/2011/07/its-ok-to-ask-and-answer-your-own-questions/" target="_blank">share your knowledge, Q&amp;A-style</a>
+            </div>
+            <div id="question-answer-section" class="dno">
+                <div id="inline-answer" style="margin-bottom: 20px;">
+                    
+
+
+    
+
+<script type="text/javascript">
+    StackExchange.ready(function() {
+        StackExchange.using("tagEditor", function () { StackExchange.tagEditor.ready.done(initFadingHelpText); });
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: '',
+            bindNavPrevention: true,
+            postfix: "-42",
+            onDemand: false,
+            discardSelector: ".discard-question"
+            ,postId:42
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor-42" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar-42" class="wmd-button-bar"></div>
+            <textarea id="wmd-input-42" class="wmd-input" name="post-text-answer" cols="92" rows="15" tabindex="103" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved-42" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded-42" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+    <div class="community-option">
+        <input id="communitymode-42" name="communitymode" type="checkbox">
+        <label for="communitymode-42" title="Marking an answer community wiki encourages others to edit it by lowering the reputation barrier required to edit. However, you will not gain any upvote reputation from it. This cannot be undone.">community wiki</label>
+    </div>
+
+
+    <div id="wmd-preview-42" class="wmd-preview"></div>
+    <div></div>
+</div>
+                </div>
+
+    <div class="form-item">
+        <div>
+            <input id="inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73" type="checkbox">
+            <label for="inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73" style="display: inline">Send me new responses to my posts via email</label>
+            <a id="inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73-settings" href="http://stackoverflow.com/questions/ask#">(settings)</a>
+        </div>
+        <div id="inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73-container" style="display: none;">
+            Send me new responses to my posts via email
+            <select id="inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73-freq" disabled="disabled">
+                <option value="3">every 3 hours</option>
+                <option value="24">daily</option>
+                <option value="168">weekly</option>
+            </select>
+            
+            <div>
+                Send emails to
+                <input id="inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73-address" style="width: 300px;" value="vroman.niels@hotmail.com" disabled="disabled">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        StackExchange.ready(function() {
+            var settingsShown = false;
+            var settingsContainer = $('#inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73-container');
+            var settingsAutoExpand = false;
+            var postForm = $('#post-form');
+            var updateHiddenField = function(name, value) {
+                var field = postForm.find('[name=' + name + ']');
+                if (value === null) {
+                    field.remove();
+                } else {
+                    if (field.length === 0) {
+                        field = $('<input>').attr({ type: 'hidden', name: name }).appendTo(postForm);
+                    }
+                    field.val(value);
+                }
+            };
+            
+            var getFormData = function() {
+                return {
+                    inboxEmailOptIn: $('#inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73').is(':checked'),
+                    inboxEmailAddress: $('#inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73-address').val(),
+                    inboxEmailFreq: $('#inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73-freq').val(),
+                };
+            };
+
+            var clearForm = function() {
+                for (var field in getFormData()) {
+                    updateHiddenField(field, null);
+                }
+            };
+
+            var updateForm = function() {
+                var data = getFormData();
+                for (var field in getFormData()) {
+                    updateHiddenField(field, data[field]);
+                }
+            };
+
+            var toggleSettings = function(show) {
+                if (show) {
+                    settingsContainer.slideDown('fast');
+                    if (!settingsShown) {
+                        StackExchange.using("gps", function() {
+                            StackExchange.gps.track('inbox_settings.show', { location: '2' });
+                        });
+                        settingsShown = true;
+                    }
+                } else {
+                    settingsContainer.slideUp('fast');
+                }
+            };
+            $('#inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73').change(function() {
+                var checked = $(this).is(':checked');
+                if (checked) {
+                    if (settingsAutoExpand) {
+                        toggleSettings(true);
+                    }
+                    updateForm();
+                } else {
+                    if (settingsAutoExpand) {
+                        toggleSettings(false);
+                    }
+                    clearForm();
+                }
+                $('#inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73-address, #inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73-freq').attr('disabled', !checked);
+            }).change();
+            $('#inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73-settings').click(function(evt) { 
+                toggleSettings(!settingsContainer.is(':visible'));
+                evt.preventDefault();
+                return false;
+            });
+            $('#inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73-address').keyup(updateForm);
+            $('#inbox-opt-int-9003a6912a2a4fddaf0219b6dc0e7d73-freq').val('24').change(updateForm);
+        });
+    </script>
+
+                <div class="form-submit cbt">
+                    <input id="submit-button-42" type="submit" value="Post Your Question And Answer" tabindex="120">
+                    <a href="http://stackoverflow.com/questions/ask#" class="discard-question ">discard</a>
+                </div>
+            </div>
+    </form>
+</div>
+<div id="sidebar" class="ask-sidebar">
+    <div id="scroller-anchor"></div>
+    <div id="scroller" style="position: fixed; width: 270px; top: 0px;">
+        <div class="module newuser sidebar-help" id="how-to-title" style="display: none;">
+            <h4>How to Ask</h4>
+            <p><b>Is your question about programming?</b></p><p>We prefer questions that can be <i>answered</i>, not just discussed.</p><p>Provide details. Share your research.</p><p>If your question is about this website, <b><a href="http://meta.stackoverflow.com/">ask it on meta</a></b> instead.</p><p class="ar"><a href="http://stackoverflow.com/help">visit the help center »</a><br><a href="http://stackoverflow.com/questions/how-to-ask">asking help »</a></p>
+        </div>
+        <div class="module newuser sidebar-help" id="how-to-format" style="&quot;display:none&quot;">
+    <h4>How to Format</h4>    
+    <p><span class="dingus">►</span> put returns between paragraphs</p>
+    <p><span class="dingus">►</span> for linebreak add 2 spaces at end</p>
+    <p><span class="dingus">►</span> <i>_italic_</i> or <b>**bold**</b></p>
+    <p><span class="dingus">►</span> indent code by 4 spaces</p>
+    <p><span class="dingus">►</span> backtick escapes <code>`like _so_`</code></p>
+    <p><span class="dingus">►</span> quote by placing &gt; at start of line</p>
+    <p><span class="dingus">►</span> to make links</p>
+    <p>&lt;http://foo.com&gt;<br>[foo](http://foo.com)<br>&lt;a href="http://foo.com"&gt;foo&lt;/a&gt;</p>
+    <p><span class="dingus">►</span> <a href="http://meta.stackoverflow.com/questions/1777/what-html-tags-are-allowed" target="_blank">basic HTML</a> also allowed</p>
+    <p class="ar">
+    <a href="http://stackoverflow.com/editing-help" target="_edithelp">formatting help »</a><br>
+    <a href="http://stackoverflow.com/questions/how-to-ask">asking help »</a>
+    </p>
+</div>
+        <div class="module newuser sidebar-help" id="how-to-tag" style="display: none;">
+    <h4>How to Tag</h4>
+    <p>A tag is a keyword or label that categorizes your question with other, similar questions.</p>
+    <p><span class="dingus">►</span> favor existing popular tags; avoid creating new tags</p>
+    <p><span class="dingus">►</span> use common abbreviations</p>
+    <p><span class="dingus">►</span> don't include synonyms</p>
+    <p><span class="dingus">►</span> combine multiple words into single-words with dashes</p>
+    <p><span class="dingus">►</span> maximum of 5 tags, 25 chars per tag</p>
+    <p><span class="dingus">►</span> tag characters: [a-z 0-9 + # - .]</p>
+    <p><span class="dingus">►</span> delimit tags by space, semicolon, or comma</p>
+    <p class="ar"><a href="http://stackoverflow.com/tags">popular tags »</a></p>
+</div>    
+    </div>
+    <script type="text/javascript">
+        StackExchange.ready(function () { moveScroller(); });
+        StackExchange.using("editor", function () {
+                        
+            var lengthCheckInterval = setInterval(function () {
+                if ($("#wmd-input").val().length >= 220) {
+                    clearInterval(lengthCheckInterval);
+                    StackExchange.cardiologist.beatASAP();
+                }
+            }, 3000);
+        });
+        
+
+    </script>
+        
+</div>
+
+<br class="cbt">
+<div style="display:none" id="prettify-lang"></div>
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/about">about</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackexchange.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/about/hiring">jobs</a>
+                    <a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MjAsImNtIjo5NTQsImNoIjoxMTc4LCJjciI6Mjc3NiwiZG0iOjQsImZjIjoyODYyLCJmbCI6Mjc1MSwibnciOjIyLCJydiI6MCwicHIiOjExNSwic3QiOjAsInVyIjoiaHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL2Fib3V0L2NvbnRhY3QiLCJyZSI6MX0&s=hRods5B22XvRBwWIwtIMekcyNF8">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="professional system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Answers</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="Information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (14)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="statisticians, data analysts, data miners and data visualization experts">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackoverflow.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Overflow</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2014 stack exchange inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> 
+ with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="footer-flair">
+                <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+            </div>
+            <div id="svnrev">
+                rev 2014.1.3.1275
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);
+        _gaq.push(['_setCustomVar', 2, 'accountid', '1978267',2]); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    var _comscore = _comscore || [];
+    (function () {
+        var ssl='https:'==document.location.protocol,
+            s=document.getElementsByTagName('script')[0],
+            ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src=(ssl?'https://ssl':'http://www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+        s.parentNode.insertBefore(sc, s);
+        
+        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+        el.parentNode.insertBefore(s, el);
+        
+    })();
+    _comscore.push({ c1: "2", c2: "17440561" });
+    _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>
+            
+
+</body></html>
