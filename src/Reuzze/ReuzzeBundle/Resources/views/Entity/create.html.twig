@@ -1,14 +1,14 @@
 {% extends 'ReuzzeReuzzeBundle::layout.html.twig' %}
 
 {% block content %}
-    <div class="fixed">  <!-- we want this div to be fixed width -->
+    <div class="fixed categoriessidebar">  <!-- we want this div to be fixed width -->
         <legend><i id="yellow"></i>CATEGORIES</legend>
         <ul>
             {% for name, category in categories %}
                 <li>{{ name }}</li>
                 <ul>
                     {% for key, string in category %}
-                        <li><a href="{{ key }}">{{ string }}</a></li>
+                        <li><a href="{{ path('reuzze_reuzze_categoryentitiespage', {'category_id': key }) }}">{{ string }}</a></li>
                     {% endfor %}
                 </ul>
             {% endfor  %}
