@@ -59,7 +59,7 @@ class Addresses
     /**
      * @var \Reuzze\ReuzzeBundle\Entity\Regions
      *
-     * @ORM\ManyToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Regions")
+     * @ORM\ManyToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Regions", fetch="EAGER")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="region_id", referencedColumnName="region_id")
      * })

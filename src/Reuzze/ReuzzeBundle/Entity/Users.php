@@ -95,7 +95,7 @@ class Users implements UserInterface
     /**
      * @var \Reuzze\ReuzzeBundle\Entity\Persons
      *
-     * @ORM\OneToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Persons")
+     * @ORM\OneToOne(targetEntity="Reuzze\ReuzzeBundle\Entity\Persons", fetch="EAGER")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="person_id", referencedColumnName="person_id", unique=true)
      * })
